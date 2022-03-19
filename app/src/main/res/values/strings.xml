@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">O.Oclock</string>
+    <string name="txt_message">Chuông báo thức sau 6 giờ 16 phút</string>
+    <string name="txt_gio">06:00</string>
+    <string name="txt_label">Giờ thức dậy</string>
+    <string name="txt_lap">Hằng ngày</string>
+    <string name="txt_gio_1">05:00</string>
+    <string name="txt_gio_2">05:30</string>
+    <string name="txt_lap_1">T2, T3, T4, T5, T6</string>
+
 </resources>
