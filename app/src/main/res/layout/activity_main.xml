@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
 
@@ -19,6 +20,7 @@
         android:gravity="center_horizontal|top"
         android:text="@string/txt_message"
         android:textSize="26sp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -205,17 +207,17 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_gio_2"
         app:layout_constraintStart_toEndOf="@+id/txt_gio_2" />
 
-    <RelativeLayout
-        android:id="@+id/menu_tab_da"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/menu_tab_da"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/menu_tab_da"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@drawable/menu_tab_da"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <Switch
         android:id="@+id/switch1"
