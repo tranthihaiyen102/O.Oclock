@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/container1.xml" value="0.2385" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/container2.xml" value="0.2225" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/container3.xml" value="0.2225" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/ellipse_1.xml" value="0.2225" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/ellipse_2.xml" value="0.2225" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/ellipse_3.xml" value="0.2225" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19672131147540983" />
       </map>
     </option>
