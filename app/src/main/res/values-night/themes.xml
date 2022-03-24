@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.OOclock" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/purple</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -19,105 +19,6 @@
 
 <!--    </style>-->
 
-
-<style name="txt_message">
-
-        <item name="android:textSize">
-            26sp
-        </item>
-
-        <item name="android:textColor">
-            #FFFFFF
-        </item>
-
-    </style>
-
-    <style name="txt_gio">
-
-        <item name="android:textSize">
-            40sp
-        </item>
-
-        <item name="android:textColor">
-            #FFFFFF
-        </item>
-
-    </style>
-
-    <style name="txt_label">
-
-        <item name="android:textSize">
-            10sp
-        </item>
-
-        <item name="android:textColor">
-            #FFFFFF
-        </item>
-
-    </style>
-
-    <style name="txt_lap">
-
-        <item name="android:textSize">
-            15sp
-        </item>
-
-        <item name="android:textColor">
-            #FFFFFF
-        </item>
-
-    </style>
-
-    <style name="txt_gio_1">
-
-        <item name="android:textSize">
-            40sp
-        </item>
-
-        <item name="android:textColor">
-            #C4C4C4
-        </item>
-
-    </style>
-
-    <style name="txt_lap_1">
-
-        <item name="android:textSize">
-            15sp
-        </item>
-
-        <item name="android:textColor">
-            #C4C4C4
-        </item>
-
-
-    </style>
-
-
-    <style name="txt_label_1">
-
-        <item name="android:textSize">
-            10sp
-        </item>
-
-        <item name="android:textColor">
-            #C4C4C4
-        </item>
-
-    </style>
-
-
-    <style name="some_id">
-
-        <item name="android:textSize">
-            65sp
-        </item>
-
-        <item name="android:textColor">
-            #FFFFFF
-        </item>
-
-    </style>
 
 
 </resources>
