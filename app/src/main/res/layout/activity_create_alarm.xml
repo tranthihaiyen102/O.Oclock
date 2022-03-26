@@ -83,7 +83,7 @@
             android:paddingRight="0dp"
             android:paddingBottom="0dp"
             android:text="@string/t2"
-            android:textColor="@android:color/white"
+            android:textColor="#FFFFFF"
             android:textSize="15sp"
             tools:ignore="TouchTargetSizeCheck"></Button>
 

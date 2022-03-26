@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.161" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/btn.xml" value="0.161" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/btn_t2.xml" value="0.2495" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/container1.xml" value="0.2495" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/container2.xml" value="0.2495" />
@@ -16,6 +17,15 @@
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/turn_off_alarm.xml" value="0.241" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_create_alarm.xml" value="0.25" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_clock.xml" value="0.15052083333333333" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_focus.xml" value="0.15052083333333333" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_settings.xml" value="0.15052083333333333" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_settings_help.xml" value="0.15052083333333333" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_settings_info.xml" value="0.15052083333333333" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_settings_lang.xml" value="0.15052083333333333" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_settings_noti.xml" value="0.15052083333333333" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_settings_ux.xml" value="0.15052083333333333" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_stop_watch.xml" value="0.15052083333333333" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/items_turnOffAlarm.xml" value="0.1984375" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/items_turn_off_alarm.xml" value="0.1984375" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2225" />
