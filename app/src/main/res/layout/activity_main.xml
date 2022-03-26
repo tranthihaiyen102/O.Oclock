@@ -20,6 +20,7 @@
         android:gravity="center_horizontal|top"
         android:text="@string/txt_message"
         android:textSize="26sp"
+        android:fontFamily="@font/montserrat_semibold"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,6 +80,7 @@
         android:layout_marginBottom="44dp"
         android:gravity="top"
         android:text="@string/txt_gio"
+        android:fontFamily="@font/montserrat_semibold"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -95,6 +97,7 @@
         android:gravity="top"
         android:text="@string/txt_label"
         android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_semibold"
         android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@+id/txt_gio"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_gio"
@@ -104,6 +107,7 @@
         android:id="@+id/txt_lap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
@@ -122,6 +126,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="44dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:gravity="top"
         android:text="@string/txt_gio_1"
         android:textSize="40sp"
@@ -138,6 +143,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:gravity="top"
         android:text="@string/txt_lap"
         android:textSize="15sp"
@@ -152,6 +158,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:layout_marginBottom="50dp"
         android:gravity="top"
         android:text="@string/txt_label"
@@ -166,6 +173,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:fontFamily="@font/montserrat_semibold"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="44dp"
         android:gravity="top"
@@ -184,6 +192,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:gravity="top"
         android:text="@string/txt_lap_1"
         android:textSize="15sp"
@@ -198,6 +207,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:fontFamily="@font/montserrat_semibold"
         android:layout_marginStart="5dp"
         android:layout_marginBottom="50dp"
         android:gravity="top"
@@ -207,17 +217,6 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_gio_2"
         app:layout_constraintStart_toEndOf="@+id/txt_gio_2" />
 
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/menu_tab_da"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:background="@drawable/menu_tab_da"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <Switch
         android:id="@+id/switch1"
@@ -252,5 +251,30 @@
         app:layout_constraintEnd_toEndOf="@+id/container3"
         app:layout_constraintTop_toTopOf="@+id/container3" />
 
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/black"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navigation" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/purple"
+        app:srcCompat="@drawable/ic_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

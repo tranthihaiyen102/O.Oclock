@@ -15,7 +15,38 @@
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/menu_focus.xml" value="0.2225" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/menu_tab_da.xml" value="0.2225" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19672131147540983" />
+        <entry key="app/src/main/res/drawable/container1.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/container2.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/container3.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/container4.xml" value="0.282" />
+        <entry key="app/src/main/res/drawable/container5.xml" value="0.282" />
+        <entry key="app/src/main/res/drawable/dark_theme.xml" value="0.222" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/ic_focus.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/light_theme.xml" value="0.222" />
+        <entry key="app/src/main/res/drawable/menu_alarm.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/menu_clock.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/menu_focus.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/menu_settings_option.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/menu_tab_da.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/selector.xml" value="0.2085" />
+        <entry key="app/src/main/res/font/mon.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3394495412844037" />
+        <entry key="app/src/main/res/layout/activity_menu_clock.xml" value="0.2907692307692308" />
+        <entry key="app/src/main/res/layout/activity_menu_focus.xml" value="0.2866621229383681" />
+        <entry key="app/src/main/res/layout/activity_menu_settings.xml" value="0.4296774193548387" />
+        <entry key="app/src/main/res/layout/activity_menu_settings_help.xml" value="0.3120471014492754" />
+        <entry key="app/src/main/res/layout/activity_menu_settings_info.xml" value="0.6440142645352129" />
+        <entry key="app/src/main/res/layout/activity_menu_settings_lang.xml" value="0.5252795233242754" />
+        <entry key="app/src/main/res/layout/activity_menu_settings_noti.xml" value="0.538860103626943" />
+        <entry key="app/src/main/res/layout/activity_menu_settings_ux.xml" value="0.3261735081231697" />
+        <entry key="app/src/main/res/layout/activity_menu_stop_watch.xml" value="0.23501860706518723" />
+        <entry key="app/src/main/res/layout/activity_stop_watch.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/appbar.xml" value="0.2033514492753623" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.30512820512820515" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/menu/menu_navigation.xml" value="0.2907692307692308" />
       </map>
     </option>
   </component>
