@@ -6,35 +6,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-//import android.widget.Toolbar;
-
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MenuFocus extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menu_focus);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        bottomNavigationView.setSelectedItemId(R.id.menu_alarm);
+        bottomNavigationView.setSelectedItemId(R.id.menu_focus);
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.menu_clock:
-                        startActivity(new Intent(getApplicationContext(), MenuClock.class));
+                    case R.id.menu_alarm:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.menu_focus:
-                        startActivity(new Intent(getApplicationContext(), MenuFocus.class));
+                    case R.id.menu_clock:
+                        startActivity(new Intent(getApplicationContext(), MenuClock.class));
                         overridePendingTransition(0,0);
                         return true;
 
@@ -48,14 +45,11 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.menu_alarm:
+                    case R.id.menu_focus:
                         return true;
                 }
                 return false;
             }
         });
-
-
     }
-
 }

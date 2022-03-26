@@ -7,5 +7,39 @@
     <string name="txt_gio_1">05:00</string>
     <string name="txt_gio_2">05:30</string>
     <string name="txt_lap_1">T2, T3, T4, T5, T6</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gio_clock">09:27</string>
+    <string name="thong_bao">Cùng gà O.O tập trung và hoàn thành công việc</string>
+    <string name="settings">Cài đặt</string>
+    <string name="txt_time_now">Thứ 7, 12/03/2022</string>
+    <string name="btn_start">Bắt đầu</string>
+    <string name="btn_reset">Đặt lại</string>
+    <string name="txt_timer">00:00:00</string>
+    <string name="txt_update">Nâng cấp lên Pro</string>
+    <string name="option_ux">Giao diện</string>
+    <string name="option_lang">Ngôn ngữ</string>
+    <string name="option_notification">Thông báo</string>
+    <string name="option_help">Trợ giúp</string>
+    <string name="lbl_UX">Giao diện</string>
+    <string name="display_option">Chế độ hiển thị</string>
+    <string name="lbl_lang">Ngôn ngữ</string>
+    <string name="viet_lang">Tiếng Việt</string>
+    <string name="eng_lang">English</string>
+    <string name="lbl_thongbao">Thông báo</string>
+    <string name="txt_thongbao">Cho phép hiển thị thông báo báo thức tiếp theo trên ngăn kéo</string>
+    <string name="title_activity_menu_settings_infor">MenuSettingsInfor</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="lbl_information">Thông tin về ứng dụng</string>
+    <string name="lbl_thongtin">Thông tin về ứng dụng</string>
+    <string name="title_activity_menu_settings_help">MenuSettingsHelp</string>
+    <string name="lbl_help">Trợ giúp</string>
 
 </resources>
