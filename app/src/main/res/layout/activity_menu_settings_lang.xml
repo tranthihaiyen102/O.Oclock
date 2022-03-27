@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_grey"
     tools:context=".MenuSettingsLang">
 
 
@@ -43,11 +44,14 @@
             android:id="@+id/tiengviet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:fontFamily="@font/montserrat_semibold"
             android:checked="true"
             android:onClick="langCheck"
             android:rotationY="0"
             android:text="@string/viet_lang"
+            android:textSize="16sp"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_UX" />
 
@@ -55,9 +59,12 @@
             android:id="@+id/tienganh"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:padding="10dp"
             android:fontFamily="@font/montserrat_semibold"
             android:onClick="langCheck"
             android:text="@string/eng_lang"
+            android:textSize="16sp"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tiengviet" />
 

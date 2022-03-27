@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MenuClock">
 
 
@@ -49,7 +50,6 @@
         android:id="@+id/imageView3"
         android:layout_width="230dp"
         android:layout_height="378dp"
-        android:layout_marginBottom="44dp"
         android:fontFamily="@font/montserrat_semibold"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MenuSettings">
 
 
@@ -62,12 +63,12 @@
     <View
         android:id="@+id/option_UX"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
-        android:onClick="onClick"
         android:layout_marginEnd="20dp"
         android:background="@drawable/menu_settings_option"
+        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option_update" />
@@ -88,7 +89,7 @@
     <View
         android:id="@+id/option_language"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
@@ -115,7 +116,7 @@
     <View
         android:id="@+id/option_noti"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
@@ -141,12 +142,12 @@
     <View
         android:id="@+id/option_help"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
-        android:onClick="onClick"
-        android:background="@drawable/menu_settings_option"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/menu_settings_option"
+        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option_noti" />
@@ -168,7 +169,7 @@
     <View
         android:id="@+id/option_infor"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"

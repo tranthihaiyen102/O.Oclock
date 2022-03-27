@@ -93,15 +93,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:gravity="top"
         android:text="@string/txt_label"
         android:textColor="@color/white"
-        android:fontFamily="@font/montserrat_semibold"
         android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/txt_gio"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_gio"
-        tools:layout_editor_absoluteY="253dp" />
+        app:layout_constraintStart_toEndOf="@+id/txt_gio" />
 
     <TextView
         android:id="@+id/txt_lap"
@@ -157,13 +156,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:layout_marginBottom="50dp"
         android:gravity="top"
         android:text="@string/txt_label"
-        android:textSize="10sp"
         android:textColor="@color/white"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_gio_1"
         app:layout_constraintStart_toEndOf="@+id/txt_gio_1" />
 
@@ -207,46 +205,51 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="50dp"
         android:gravity="top"
         android:text="@string/txt_label"
-        android:textSize="10sp"
         android:textColor="@color/white"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_gio_2"
         app:layout_constraintStart_toEndOf="@+id/txt_gio_2" />
 
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="56dp"
+        app:track="@drawable/switch_bg_custom"
+        android:thumb="@drawable/thumb_custom"
         app:layout_constraintBottom_toBottomOf="@+id/container1"
         app:layout_constraintEnd_toEndOf="@+id/container1"
         app:layout_constraintTop_toTopOf="@+id/container1" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="56dp"
+        app:track="@drawable/switch_bg_custom"
+        android:thumb="@drawable/thumb_custom"
         app:layout_constraintBottom_toBottomOf="@+id/container2"
         app:layout_constraintEnd_toEndOf="@+id/container2"
         app:layout_constraintTop_toTopOf="@+id/container2" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch3"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="56dp"
+        app:track="@drawable/switch_bg_custom"
+        android:thumb="@drawable/thumb_custom"
         app:layout_constraintBottom_toBottomOf="@+id/container3"
         app:layout_constraintEnd_toEndOf="@+id/container3"
         app:layout_constraintTop_toTopOf="@+id/container3" />
@@ -274,7 +277,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="@color/purple"
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_add_alarm"
+        android:onClick="addNewAlarm"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
