@@ -3,6 +3,7 @@ package com.example.ooclock;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -71,5 +72,10 @@ public class CreateAlarm extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
+    }
+
+    public void previewAlarm(View view) {
+        Intent intent = new Intent(this, TurnOffAlarm.class);
+        startActivity(intent);
     }
 }
