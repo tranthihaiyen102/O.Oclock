@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/btn.xml" value="0.1495" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/btn_number.xml" value="0.1495" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/btn_t2.xml" value="0.2405" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/btn_turn_off.xml" value="0.161" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/button.xml" value="0.1495" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/check_box.xml" value="0.161" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/checkbox_checked.xml" value="0.161" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/checkbox_unchecked.xml" value="0.161" />
@@ -20,6 +24,7 @@
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_settings_ux.xml" value="0.24592391304347827" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_stop_watch.xml" value="0.24592391304347827" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_turn_off_alarm.xml" value="0.25" />
+        <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_turn_off_alarm_math.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/menu/menu_navigation.xml" value="0.25" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2225" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable-xhdpi/radio_selected2.xml" value="0.2225" />

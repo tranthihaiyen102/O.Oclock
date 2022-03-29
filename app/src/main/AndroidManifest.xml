@@ -10,11 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OOclock">
         <activity
+            android:name=".TurnOffAlarmMath"
+            android:exported="false" />
+        <activity
             android:name=".TurnOffAlarm"
             android:exported="false" />
         <activity
             android:name=".CreateAlarm"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MenuSettingsHelp"
             android:exported="false" />
