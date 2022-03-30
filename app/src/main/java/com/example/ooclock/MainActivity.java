@@ -2,11 +2,14 @@ package com.example.ooclock;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 //import android.widget.Toolbar;
 
 
@@ -20,9 +23,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SwitchCompat switchCompat = findViewById(R.id.switch1);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setSelectedItemId(R.id.menu_alarm);
+
+
+
+        switchCompat.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        if (switchCompat.isChecked()){
+
+                        }
+                    }
+                }
+        );
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -59,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
 
     public void addNewAlarm(View view) {
         Intent intent = new Intent(this, CreateAlarm.class);
