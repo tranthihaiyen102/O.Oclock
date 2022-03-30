@@ -1,40 +1,41 @@
 package com.example.ooclock;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.content.Context;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MenuFocus extends AppCompatActivity {
+public class MenuFocusGiveup extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_focus);
+        setContentView(R.layout.activity_menu_focus_giveup);
+
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setSelectedItemId(R.id.menu_focus);
 
 
-        Button btn_setTimer = (Button) findViewById(R.id.btn_timer);
+        Button btn_startAgain = (Button) findViewById(R.id.btn_start_focus_again);
 
-
-        btn_setTimer.setOnClickListener(new View.OnClickListener() {
+        btn_startAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuFocus.this, MenuFocusTiming.class));
+                startActivity(new Intent(MenuFocusGiveup.this, MenuFocus.class));
+                overridePendingTransition(0,0);
             }
         });
+
+
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -67,50 +68,5 @@ public class MenuFocus extends AppCompatActivity {
                 return false;
             }
         });
-
-
-
-//        AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(MenuFocus.this);
-//
-//        myAlertBuilder.setMessage("Gà O.O sẽ theo dõi sự tập trung của bạn. Bạn đã sẵn sàng?");
-//
-//        myAlertBuilder.setPositiveButton("OK", (dialog, which) ->  {
-//            startActivity(new Intent(this, MenuFocusGiveup.class));
-//            overridePendingTransition(0,0);
-//        });
-//
-//        myAlertBuilder.setNegativeButton("Hủy", (dialog, which) -> {
-//           startActivity(new Intent(this, MenuFocusGiveup.class));
-//           overridePendingTransition(0,0);
-//        });
-
     }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.btn_timer) {
-            AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(MenuFocus.this);
-
-            myAlertBuilder.setMessage("Gà O.O sẽ theo dõi sự tập trung của bạn. Bạn đã sẵn sàng?");
-
-            myAlertBuilder.setPositiveButton("OK", (dialog, which) ->  {
-            startActivity(new Intent(this, MenuFocusGiveup.class));
-            overridePendingTransition(0,0);
-            });
-
-        myAlertBuilder.setNegativeButton("Hủy", (dialog, which) -> {
-           startActivity(new Intent(this, MenuFocusGiveup.class));
-           overridePendingTransition(0,0);
-        });
-
-
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
-
-
-
 }

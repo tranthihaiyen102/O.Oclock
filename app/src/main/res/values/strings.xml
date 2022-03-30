@@ -62,5 +62,8 @@
     <string name="txt_phepToan">20+30</string>
     <string name="txt_dauBang">=</string>
 
+    <string name="lbl_tb">Bắt đầu</string>
+
+
 
 </resources>

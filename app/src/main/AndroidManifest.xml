@@ -9,11 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OOclock">
+
         <activity
             android:name=".TurnOffAlarmMath"
             android:exported="false" />
         <activity
             android:name=".TurnOffAlarm"
+            android:exported="false" />
+
+        <!--<activity
+            android:name=".StartScreen"
+            android:exported="false" />-->
+        <activity
+            android:name=".MenuFocusBreakTime"
+            android:exported="false" />
+        <activity
+            android:name=".MenuFocusTiming"
+            android:exported="false" />
+        <activity
+            android:name=".MenuFocusGiveup"
             android:exported="false" />
         <activity
             android:name=".CreateAlarm"
@@ -46,7 +60,8 @@
             android:name=".MenuClock"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".StartScreen"
+            android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,6 +69,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
+
     </application>
 
 </manifest>
