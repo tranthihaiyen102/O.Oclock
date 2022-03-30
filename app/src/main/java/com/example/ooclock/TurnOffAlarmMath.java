@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class TurnOffAlarmMath extends AppCompatActivity {
 
@@ -17,4 +19,8 @@ public class TurnOffAlarmMath extends AppCompatActivity {
     }
 
 
+    public void button_1(View view) {
+        TextView txt1= (TextView) findViewById(R.id.button_1);
+        txt1.setText("1");
+    }
 }
