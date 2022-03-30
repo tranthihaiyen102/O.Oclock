@@ -54,6 +54,7 @@
     <string name="t7">T7</string>
     <string name="cn">CN</string>
     <string name="lbl_addAlarm">Thêm báo thức</string>
+    <string name="lbl_tb">Bắt đầu</string>
 
 
 </resources>
