@@ -21,7 +21,6 @@ import java.util.Date;
 
 public class CreateAlarm extends AppCompatActivity {
 
-//    private Spinner spinner_turnOffAlarm;
     TextView textTimePicker;
     int hour, minute;
 
@@ -30,17 +29,7 @@ public class CreateAlarm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_alarm);
 
-//        spinner_turnOffAlarm = findViewById(R.id.turnOffAlarm);
-
         textTimePicker = findViewById(R.id.textTimePicker);
-
-//        ArrayList<String> arrTurnOffAlarm = new ArrayList<String>();
-//        arrTurnOffAlarm.add("Giải toán");
-//        arrTurnOffAlarm.add("Chuông báo");
-//
-//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, arrTurnOffAlarm);
-//        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner_turnOffAlarm.setAdapter(arrayAdapter);
 
         textTimePicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +65,21 @@ public class CreateAlarm extends AppCompatActivity {
 
     public void previewAlarm(View view) {
         Intent intent = new Intent(this, TurnOffAlarm.class);
+        startActivity(intent);
+    }
+
+    public void chooseWay(View view) {
+        Intent intent = new Intent(this, WayTurnOffActivity.class);
+        startActivity(intent);
+    }
+
+    public void soundOption(View view) {
+        Intent intent = new Intent(this, SoundOptionActivity.class);
+        startActivity(intent);
+    }
+
+    public void chooseOtherOption(View view) {
+        Intent intent = new Intent(this, OtherOptionActivity.class);
         startActivity(intent);
     }
 }
