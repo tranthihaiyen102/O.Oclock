@@ -45,9 +45,13 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(Alarm alarm) {
         String alarmText = String.format("%02d:%02d", alarm.getHour(), alarm.getMinute());
-
         alarmTime.setText(alarmText);
         alarmStarted.setChecked(alarm.isStarted());
+
+        if(alarm.isStarted())
+            container1.setBackgroundResource(R.drawable.container1);
+        else
+            container1.setBackgroundResource(R.drawable.container2);
 
         if (alarm.isRecurring()) {
             if(alarm.isEveryday())
