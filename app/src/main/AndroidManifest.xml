@@ -70,6 +70,22 @@
             </intent-filter>
         </activity>
 
+        <receiver android:enabled="true" android:name=".broadcastreceiver.AlarmBroadcastReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:enabled="true" android:name=".broadcastreceiver.NotiBroadcastReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+        </receiver>
+
+        <service android:enabled="true" android:name=".service.AlarmService"/>
+        <service android:name=".service.AlarmNotificationService"/>
+        <service android:name=".service.RescheduleAlarmsService"/>
 
     </application>
 
