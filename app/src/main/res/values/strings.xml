@@ -43,7 +43,7 @@
     <string name="title_activity_menu_settings_help">MenuSettingsHelp</string>
     <string name="lbl_help">Trợ giúp</string>
 
-    <string name="some_id">06:00</string>
+    <string name="some_id">06:00 AM</string>
     <string name="text_lap_lai">Lặp lại</string>
     <string name="cbo_hangNgay">Hằng ngày</string>
     <string name="t2">T2</string>
@@ -63,7 +63,7 @@
     <string name="txt_dauBang">=</string>
 
     <string name="lbl_tb">Bắt đầu</string>
-
+    <string name="finish">Finish</string>
 
 
 </resources>

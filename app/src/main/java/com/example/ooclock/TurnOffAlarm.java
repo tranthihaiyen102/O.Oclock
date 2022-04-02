@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.ooclock.service.AlarmService;
+
 public class TurnOffAlarm extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,10 @@ public class TurnOffAlarm extends AppCompatActivity {
     }
 
     public void turnOffAlarm(View view) {
-        Intent intent = new Intent(this, TurnOffAlarmMath.class);
-        startActivity(intent);
+        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
+        getApplicationContext().stopService(intentService);
+        finish();
+//        Intent intent = new Intent(this, TurnOffAlarmMath.class);
+//        startActivity(intent);
     }
 }

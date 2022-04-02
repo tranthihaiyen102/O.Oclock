@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     tools:context=".CreateAlarm">
+
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/black"
@@ -14,13 +16,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_semibold"
             android:text="@string/lbl_addAlarm"
             android:textColor="@color/white"
-            android:fontFamily="@font/montserrat_semibold"
             android:textSize="20sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
@@ -79,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textTimePicker" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/recurring_options"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -94,6 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_lap_lai">
 
         <CheckBox
+            android:id="@+id/mon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -113,6 +117,7 @@
             android:layout_weight="1" />
 
         <CheckBox
+            android:id="@+id/tue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/t3"
@@ -129,6 +134,7 @@
             android:layout_weight="1" />
 
         <CheckBox
+            android:id="@+id/wed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/t4"
@@ -145,6 +151,7 @@
             android:layout_weight="1" />
 
         <CheckBox
+            android:id="@+id/thu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/t5"
@@ -161,6 +168,7 @@
             android:layout_weight="1" />
 
         <CheckBox
+            android:id="@+id/fri"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/t6"
@@ -177,6 +185,7 @@
             android:layout_weight="1" />
 
         <CheckBox
+            android:id="@+id/sat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/t7"
@@ -193,6 +202,7 @@
             android:layout_weight="1" />
 
         <CheckBox
+            android:id="@+id/sun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -361,7 +371,8 @@
 
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/recurring_options"
+        app:layout_constraintVertical_bias="1.0">
 
 
         <EditText
@@ -401,11 +412,11 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/button"
             android:fontFamily="@font/montserrat_semibold"
+            android:onClick="previewAlarm"
             android:text="Preview"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="28sp"
-            android:onClick="previewAlarm"
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <!--        <Spinner-->
@@ -435,6 +446,19 @@
         <!--            tools:ignore="SpeakableTextPresentCheck" />-->
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/finish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:textSize="17dp"
+        android:textColor="@color/white"
+        android:background="@drawable/button"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
