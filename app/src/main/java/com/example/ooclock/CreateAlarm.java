@@ -122,8 +122,16 @@ public class CreateAlarm extends AppCompatActivity {
         sun.setOnCheckedChangeListener(weekdayListener);
 
         Date currentTime = Calendar.getInstance().getTime();
-        if(alarm!=null)
-            textTimePicker.setText(TimePickerUtil.tof12H(alarm.getHour(),alarm.getMinute()));
+        if(alarm!=null) {
+            textTimePicker.setText(TimePickerUtil.tof12H(alarm.getHour(), alarm.getMinute()));
+            mon.setChecked(alarm.isMonday());
+            tue.setChecked(alarm.isTuesday());
+            wed.setChecked(alarm.isWednesday());
+            thu.setChecked(alarm.isThursday());
+            fri.setChecked(alarm.isFriday());
+            sat.setChecked(alarm.isSaturday());
+            sun.setChecked(alarm.isSunday());
+        }
         else textTimePicker.setText(TimePickerUtil.tof12H(currentTime.getHours(),currentTime.getMinutes()));
         hour=TimePickerUtil.getTimePickerHour(textTimePicker);
         minute=TimePickerUtil.getTimePickerMinute(textTimePicker);
