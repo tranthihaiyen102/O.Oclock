@@ -66,9 +66,9 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         }
 
         if (alarm.getTitle().length() != 0) {
-            alarmTitle.setText(String.format("%s | %d | %d", alarm.getTitle(), alarm.getAlarmId(), alarm.getCreated()));
+            alarmTitle.setText(alarm.getTitle());
         } else {
-            alarmTitle.setText(String.format("%s | %d | %d", "Alarm", alarm.getAlarmId(), alarm.getCreated()));
+            alarmTitle.setText("Alarm");
         }
 
         constraintLayout.setOnLongClickListener(new View.OnLongClickListener() {

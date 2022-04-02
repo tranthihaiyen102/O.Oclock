@@ -19,6 +19,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.example.ooclock.MenuStopWatch;
 import com.example.ooclock.R;
+import com.example.ooclock.TurnOffAlarm;
 
 
 public class AlarmService extends Service {
@@ -33,8 +34,7 @@ public class AlarmService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("An_Test","Intent: "+intent+", Flag: "+flags+", StartId: "+startId);
-        Intent notificationIntent = new Intent(this, MenuStopWatch.class);
+        Intent notificationIntent = new Intent(this, TurnOffAlarm.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
         String alarmTitle = String.format("%s Alarm", intent.getStringExtra(TITLE));

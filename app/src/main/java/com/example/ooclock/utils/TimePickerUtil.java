@@ -24,6 +24,7 @@ public final class TimePickerUtil {
     }
 
     public static String tof12H(int hour,int minute) {
+        String m,h;
         String aa="AM";
         if(hour>12){
             hour-=12;
@@ -36,6 +37,10 @@ public final class TimePickerUtil {
             hour = 12;
             aa = "AM";
         };
-        return hour+":"+minute+" "+aa;
+        if(minute<10) m="0"+minute;
+        else m=""+minute;
+        if(hour<10) h="0"+hour;
+        else h=""+hour;
+        return h+":"+m+" "+aa;
     }
 }
