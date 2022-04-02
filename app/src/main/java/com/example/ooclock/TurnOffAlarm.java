@@ -1,5 +1,7 @@
 package com.example.ooclock;
 
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.TITLE;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,6 +21,7 @@ import butterknife.BindView;
 
 public class TurnOffAlarm extends AppCompatActivity {
     TextView txt_thucday;
+    TextView noi_dung;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,8 @@ public class TurnOffAlarm extends AppCompatActivity {
         txt_thucday = findViewById(R.id.txt_gioThucDay);
         Date currentTime = Calendar.getInstance().getTime();
         txt_thucday.setText(TimePickerUtil.tof12H(currentTime.getHours(),currentTime.getMinutes()));
+        noi_dung = findViewById(R.id.noi_dung);
+        noi_dung.setText(getIntent().getStringExtra(TITLE));
     }
 
     public void turnOffAlarm(View view) {

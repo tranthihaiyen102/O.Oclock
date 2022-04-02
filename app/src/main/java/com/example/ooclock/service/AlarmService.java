@@ -35,10 +35,10 @@ public class AlarmService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Intent notificationIntent = new Intent(this, TurnOffAlarm.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
         String alarmTitle = String.format("%s Alarm", intent.getStringExtra(TITLE));
-
+        notificationIntent.putExtra(TITLE,intent.getStringExtra(TITLE));
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(alarmTitle)
                 .setContentText("Ring Ring .. Ring Ring")
