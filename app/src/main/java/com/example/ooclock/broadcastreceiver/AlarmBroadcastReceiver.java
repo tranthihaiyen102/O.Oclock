@@ -40,7 +40,6 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
             else if (alarmIsToday(intent)) {
                 startAlarmService(context, intent);
             }
-
         }
     }
 

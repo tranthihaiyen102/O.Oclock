@@ -1,6 +1,8 @@
 package com.example.ooclock.alarmlist;
 
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -15,6 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ooclock.CreateAlarm;
 import com.example.ooclock.MainActivity;
 import com.example.ooclock.R;
 import com.example.ooclock.model.Alarm;
@@ -84,10 +87,10 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                alarm.cancelAlarm(view.getContext());
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("alarmId",alarm.getAlarmId());
-//                Navigation.findNavController(view).navigate(R.id.action_alarmsListFragment_to_createAlarmFragment,bundle);
+                alarm.cancelAlarm(view.getContext());
+                Intent editIntent = new Intent(listener.getBaseContext(), CreateAlarm.class);
+                editIntent.putExtra("alarmId",alarm.getAlarmId());
+                listener.startActivity(editIntent);
             }
         });
 

@@ -29,6 +29,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -56,6 +57,7 @@ public class CreateAlarm extends AppCompatActivity {
 //    private Spinner spinner_turnOffAlarm;
 
     int hour, minute;
+    Alarm alarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,9 @@ public class CreateAlarm extends AppCompatActivity {
         setContentView(R.layout.activity_create_alarm);
         ButterKnife.bind(this);
         createAlarmViewModel = ViewModelProviders.of(this).get(AlarmModel.class);
+
+        int alarmId = getIntent().getIntExtra("alarmId",-1);
+        if(alarmId!=-1) alarm = createAlarmViewModel.getAlarmbyId(alarmId);
 //        spinner_turnOffAlarm = findViewById(R.id.turnOffAlarm);
 
 //        ArrayList<String> arrTurnOffAlarm = new ArrayList<String>();
@@ -81,6 +86,7 @@ public class CreateAlarm extends AppCompatActivity {
                     recurring.setChecked(false);
             }
         } ;
+
         recurring.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -114,7 +120,14 @@ public class CreateAlarm extends AppCompatActivity {
         sat.setOnCheckedChangeListener(weekdayListener);
         sun.setOnCheckedChangeListener(weekdayListener);
 
-        textTimePicker.setText(R.string.some_id);
+
+        String currentTime = new SimpleDateFormat("HH:mm aa", Locale.getDefault()).format(new Date());
+        if(alarm!=null)
+            textTimePicker.setText(TimePickerUtil.tof12H(alarm.getHour(),alarm.getMinute()));
+        else textTimePicker.setText(currentTime);
+        hour=TimePickerUtil.getTimePickerHour(textTimePicker);
+        minute=TimePickerUtil.getTimePickerMinute(textTimePicker);
+
         textTimePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,17 +151,20 @@ public class CreateAlarm extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
                             }
-                        },11, 0, false
+                        },hour,minute, false
                 );
                 timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                timePickerDialog.updateTime(hour,minute);
                 timePickerDialog.show();
             }
         });
         btnScheduleAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scheduleAlarm();
+                if(alarm==null)
+                    scheduleAlarm();
+                else{
+                    updateAlarm(alarm);
+                }
                 startActivity(new Intent(getBaseContext(),MainActivity.class));
             }
         });
@@ -176,6 +192,29 @@ public class CreateAlarm extends AppCompatActivity {
 
         createAlarmViewModel.insert(alarm);
 
+        alarm.schedule(this);
+    }
+
+    private void updateAlarm(Alarm alarm) {
+        int alarmId = alarm.getAlarmId();
+        alarm = new Alarm(
+                alarmId,
+                TimePickerUtil.getTimePickerHour(textTimePicker),
+                TimePickerUtil.getTimePickerMinute(textTimePicker),
+                title.getText().toString(),
+                System.currentTimeMillis(),
+                true,
+                recurring.isChecked(),
+                mon.isChecked(),
+                tue.isChecked(),
+                wed.isChecked(),
+                thu.isChecked(),
+                fri.isChecked(),
+                sat.isChecked(),
+                sun.isChecked()
+        );
+
+        createAlarmViewModel.update(alarm);
         alarm.schedule(this);
     }
 

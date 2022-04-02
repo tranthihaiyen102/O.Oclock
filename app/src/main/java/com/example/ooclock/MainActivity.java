@@ -23,6 +23,8 @@ import com.example.ooclock.listeners.OnToggleAlarmListener;
 import com.example.ooclock.model.Alarm;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnToggleAlarmListener {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
             @Override
             public void onChanged(List<Alarm> alarms) {
                 if (alarms != null) {
+                    Collections.sort(alarms);
                     alarmRecyclerViewAdapter.setAlarms(alarms);
                 }
             }

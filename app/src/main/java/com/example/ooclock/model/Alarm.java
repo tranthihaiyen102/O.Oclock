@@ -32,7 +32,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Entity(tableName = "alarm_table")
-public class Alarm {
+public class Alarm implements Comparable<Alarm> {
     @PrimaryKey
     @NonNull
     private int alarmId;
@@ -314,5 +314,12 @@ public class Alarm {
                 return false;
         }
         return false;
+    }
+
+    @Override
+    public int compareTo(Alarm alarm) {
+        if(hour==alarm.hour & minute==alarm.minute) return 0;
+        else if(hour>alarm.hour | (hour==alarm.hour & minute>alarm.minute)) return 1;
+        else return -1;
     }
 }
