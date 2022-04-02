@@ -10,7 +10,7 @@ public final class TimePickerUtil {
         int hour = Integer.parseInt(time.split(":")[0]);
         if(hour==12) hour=0;
         String am = time.split(" ")[1];
-        if(am.equals("PM")){
+        if(am.equals("PM")||am.equals("CH")){
             hour+=12;
         }
         if(hour>=24) hour-=24;
