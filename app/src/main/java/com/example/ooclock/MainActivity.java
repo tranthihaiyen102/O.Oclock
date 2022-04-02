@@ -110,10 +110,6 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
 
     }
 
-
-
-
-
     public void addNewAlarm(View view) {
         Intent intent = new Intent(this, CreateAlarm.class);
         startActivity(intent);
