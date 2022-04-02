@@ -44,7 +44,6 @@ public class AlarmService extends Service {
                 .setContentText("Ring Ring .. Ring Ring")
                 .setSmallIcon(R.drawable.ic_alarm_black_24dp)
                 .setContentIntent(pendingIntent)
-                .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                 .build();
 
         Intent intentService = new Intent(getApplicationContext(), AlarmNotificationService.class);
@@ -61,8 +60,8 @@ public class AlarmService extends Service {
         long[] pattern = { 0, 100, 1000 };
         vibrator.vibrate(pattern, 0);
         startForeground(1, notification);
-        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(notificationIntent);
+//        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(notificationIntent);
         return START_STICKY;
     }
 

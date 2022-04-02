@@ -28,6 +28,7 @@ import java.sql.DatabaseMetaData;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
@@ -120,11 +121,10 @@ public class CreateAlarm extends AppCompatActivity {
         sat.setOnCheckedChangeListener(weekdayListener);
         sun.setOnCheckedChangeListener(weekdayListener);
 
-
-        String currentTime = new SimpleDateFormat("HH:mm aa", Locale.getDefault()).format(new Date());
+        Date currentTime = Calendar.getInstance().getTime();
         if(alarm!=null)
             textTimePicker.setText(TimePickerUtil.tof12H(alarm.getHour(),alarm.getMinute()));
-        else textTimePicker.setText(currentTime);
+        else textTimePicker.setText(TimePickerUtil.tof12H(currentTime.getHours(),currentTime.getMinutes()));
         hour=TimePickerUtil.getTimePickerHour(textTimePicker);
         minute=TimePickerUtil.getTimePickerMinute(textTimePicker);
 
