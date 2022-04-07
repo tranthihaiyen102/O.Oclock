@@ -39,6 +39,8 @@ public class TurnOffAlarmMath extends AppCompatActivity {
     @BindView(R.id.button_9) Button button_9;
     @BindView(R.id.button_0) Button button_0;
     int result;
+    int sobai;
+    int bai;
     View.OnClickListener numberOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -72,11 +74,12 @@ public class TurnOffAlarmMath extends AppCompatActivity {
                 }
             }
         });
+
 //        result = toan_1();
 //        result = toan_2();
 //        result = toan_3();
-        result = toan_4();
-//        result = toan_5();
+//        result = toan_4();
+        result = toan_5();
 //        result = toan_6();
         Log.d("An_Test",result+"");
         btn_OK.setOnClickListener(new View.OnClickListener() {

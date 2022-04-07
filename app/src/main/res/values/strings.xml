@@ -64,6 +64,17 @@
 
     <string name="lbl_tb">Bắt đầu</string>
     <string name="finish">Finish</string>
+    <string name="picktime">Xin hãy chọn thời gian</string>
+    <string-array name="time_array">
+        <item>25 phút</item>
+        <item>30 phút</item>
+        <item>45 phút</item>
+    </string-array>
+    <string-array name="rest_time_array">
+        <item>25 phút</item>
+        <item>30 phút</item>
+        <item>45 phút</item>
+    </string-array>
 
 
 </resources>
