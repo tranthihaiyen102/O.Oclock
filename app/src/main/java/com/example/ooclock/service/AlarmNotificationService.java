@@ -20,7 +20,6 @@ import androidx.core.app.NotificationCompat;
 import com.example.ooclock.MainActivity;
 import com.example.ooclock.R;
 
-
 public class AlarmNotificationService extends Service {
     private Vibrator vibrator;
     @Override
@@ -33,40 +32,31 @@ public class AlarmNotificationService extends Service {
         Log.d("An_test","RUNNING");
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
-
         String alarmTitle = String.format("%s Alarm", intent.getStringExtra(TITLE));
-
-
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(alarmTitle)
                 .setContentText("Chuan bi bao thuc!")
                 .setSmallIcon(R.drawable.ic_alarm_black_24dp)
                 .setContentIntent(pendingIntent)
                 .build();
-
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        long[] pattern = { 0, 100, 1000 };
+        long[] pattern = {0, 100, 1000};
         vibrator.vibrate(pattern, -1);
 
-
         startForeground(1, notification);
-        new CountDownTimer(NOTITIME*60*1000, 10000) {
+        new CountDownTimer(NOTITIME * 60 * 1000, 10000) {
             public void onTick(long millisUntilFinished) {
             }
             public void onFinish() {
-                try
-                {
+                try {
                     stopSelf();
-                }
-                catch (Exception ex)
-                {
+                } catch (Exception ex) {
 
                 }
             }
         }.start();
         return START_STICKY;
     }
-
 
     @Override
     public void onDestroy() {

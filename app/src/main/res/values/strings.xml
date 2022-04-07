@@ -60,7 +60,7 @@
     <string name="quiz_page">1/2</string>
     <string name="computed_time">00:30</string>
     <string name="txt_phepToan">20+30</string>
-    <string name="txt_dauBang">=</string>
+    <string name="txt_dauBang">=\u0020</string>
 
     <string name="lbl_tb">Bắt đầu</string>
     <string name="finish">Finish</string>
