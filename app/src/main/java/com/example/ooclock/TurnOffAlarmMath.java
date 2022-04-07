@@ -72,7 +72,12 @@ public class TurnOffAlarmMath extends AppCompatActivity {
                 }
             }
         });
-        result = toan_1();
+//        result = toan_1();
+//        result = toan_2();
+//        result = toan_3();
+        result = toan_4();
+//        result = toan_5();
+//        result = toan_6();
         Log.d("An_Test",result+"");
         btn_OK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,10 +102,61 @@ public class TurnOffAlarmMath extends AppCompatActivity {
     public int toan_1(){
         int so1, so2;
         int min=1;
-        int max=999999999;
+        int max=9;
         so1= min + (int)(Math.random() * ((max - min) + 1));
         so2= min + (int)(Math.random() * ((max - min) + 1));
-        txtPhepToan.setText(so1+" + "+so2);
+        txtPhepToan.setText(so1+"+"+so2);
         return (so1+so2);
+    }
+
+    public int toan_2(){
+        int so1, so2;
+        int min=1;
+        int max=99;
+        so1= min + (int)(Math.random() * ((max - min) + 1));
+        so2= min + (int)(Math.random() * ((max - min) + 1));
+        txtPhepToan.setText(so1+"+"+so2);
+        return (so1+so2);
+    }
+
+    public int toan_3(){
+        int so1, so2, so3;
+        int min=1;
+        int max=99;
+        so1= min + (int)(Math.random() * ((max - min) + 1));
+        so2= min + (int)(Math.random() * ((max - min) + 1));
+        so3= min + (int)(Math.random() * ((max - min) + 1));
+        txtPhepToan.setText(so1+"+"+so2+"+"+so3);
+        return (so1+so2+so3);
+    }
+    public int toan_4(){
+        int so1, so2, so3;
+        int min=1;
+        int max=99;
+        int max2=9;
+        so1= min + (int)(Math.random() * ((max - min) + 1));
+        so2= min + (int)(Math.random() * ((max2 - min) + 1));
+        so3= min + (int)(Math.random() * ((max - min) + 1));
+        txtPhepToan.setText("("+so1+"x"+so2+")+"+so3);
+        return ((so1*so2)+so3);
+    }
+    public int toan_5(){
+        int so1, so2;
+        int min=1;
+        int max=99;
+        so1= min + (int)(Math.random() * ((max - min) + 1));
+        so2= min + (int)(Math.random() * ((max - min) + 1));
+        txtPhepToan.setText(so1+"x"+so2);
+        return (so1*so2);
+    }
+    public int toan_6(){
+        int so1, so2,so3;
+        int min=1;
+        int max=99;
+        so1= min + (int)(Math.random() * ((max - min) + 1));
+        so2= min + (int)(Math.random() * ((max - min) + 1));
+        so3= min + (int)(Math.random() * ((max - min) + 1));
+        txtPhepToan.setText(so1+"x"+so2+"x"+so3);
+        return (so1*so2*so3);
     }
 }
