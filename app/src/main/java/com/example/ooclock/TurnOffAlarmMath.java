@@ -96,8 +96,10 @@ public class TurnOffAlarmMath extends AppCompatActivity {
 
     public int toan_1(){
         int so1, so2;
-        so1= ThreadLocalRandom.current().nextInt(1, 999999999 + 1);
-        so2= ThreadLocalRandom.current().nextInt(1, 999999999 + 1);
+        int min=1;
+        int max=999999999;
+        so1= min + (int)(Math.random() * ((max - min) + 1));
+        so2= min + (int)(Math.random() * ((max - min) + 1));
         txtPhepToan.setText(so1+" + "+so2);
         return (so1+so2);
     }

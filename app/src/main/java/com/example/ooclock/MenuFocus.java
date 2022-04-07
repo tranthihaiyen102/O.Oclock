@@ -102,8 +102,6 @@ public class MenuFocus extends AppCompatActivity {
            startActivity(new Intent(this, MenuFocusGiveup.class));
            overridePendingTransition(0,0);
         });
-
-
         }
 
         return super.onOptionsItemSelected(item);
