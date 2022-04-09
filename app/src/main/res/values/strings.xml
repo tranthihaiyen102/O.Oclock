@@ -65,6 +65,7 @@
     <string name="lbl_tb">Bắt đầu</string>
     <string name="finish">Finish</string>
     <string name="picktime">Xin hãy chọn thời gian</string>
+    <string name="end_countdown">00:00</string>
     <string-array name="time_array">
         <item>25 phút</item>
         <item>30 phút</item>
