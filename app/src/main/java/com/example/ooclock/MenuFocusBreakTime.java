@@ -101,7 +101,8 @@ public class MenuFocusBreakTime extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        count.cancel();
+        if(count!=null)
+            count.cancel();
         super.onBackPressed();
     }
 }
