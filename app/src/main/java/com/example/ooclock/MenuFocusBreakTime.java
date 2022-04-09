@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import java.util.concurrent.TimeUnit;
@@ -96,5 +97,11 @@ public class MenuFocusBreakTime extends AppCompatActivity {
         } else if (view.getId() == R.id.back_flipper) {
             viewFlipper.showPrevious();
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        count.cancel();
+        super.onBackPressed();
     }
 }

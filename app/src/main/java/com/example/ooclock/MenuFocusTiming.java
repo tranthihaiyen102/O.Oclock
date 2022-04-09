@@ -89,12 +89,4 @@ public class MenuFocusTiming extends AppCompatActivity {
     public void onBackPressed(){
         Toast.makeText(getApplicationContext(),"You Are Not Allowed to Exit the App", Toast.LENGTH_SHORT).show();
     }
-
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_HOME) {
-            Log.i("TEST", "Home Button");  // here you'll have to do something to prevent the button to go to the home screen
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 }
