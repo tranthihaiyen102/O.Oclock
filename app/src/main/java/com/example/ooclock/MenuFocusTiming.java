@@ -100,7 +100,10 @@ public class MenuFocusTiming extends AppCompatActivity {
         count = new CountDownTimer(time * 1000, 1000) {
             public void onTick(long millisUntilFinished) {
                 reset_touch++;
-                if(reset_touch%2==1)touch=false;
+                if(reset_touch%2==1){
+                    windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+                    touch=false;
+                }
                 Log.d("An_Test",millis+"");
                 format_time = String.format("%02d:%02d",
                         TimeUnit.MILLISECONDS.toMinutes(millis) -
