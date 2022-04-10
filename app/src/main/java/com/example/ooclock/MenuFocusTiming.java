@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
@@ -49,10 +50,10 @@ public class MenuFocusTiming extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_focus_timing);
+        Log.d("An_Test","timing");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        windowInsetsController =
-                ViewCompat.getWindowInsetsController(getWindow().getDecorView());
+        windowInsetsController = new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView());
         if (windowInsetsController == null) {
             return;
         }
