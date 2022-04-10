@@ -9,9 +9,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -30,6 +34,8 @@ import java.util.concurrent.TimeUnit;
 import javax.net.ssl.HttpsURLConnection;
 
 public class MenuFocusTiming extends AppCompatActivity {
+    MediaPlayer mediaPlayer;
+    Vibrator vibrator;
     TextView txt_countdown;
     int millis;
     String format_time;
@@ -106,6 +112,13 @@ public class MenuFocusTiming extends AppCompatActivity {
             public void onFinish() {
                 try {
                     txt_countdown.setText(R.string.end_countdown);
+                    mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.finish_sound);
+                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                    mediaPlayer.setLooping(false);
+                    mediaPlayer.start();
+                    vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    long[] pattern = {0, 100, 1000};
+                    vibrator.vibrate(pattern, -1);
                     Intent intent = new Intent(MenuFocusTiming.this,MenuFocusBreakTime.class);
                     startActivity(intent);
                     finish();
