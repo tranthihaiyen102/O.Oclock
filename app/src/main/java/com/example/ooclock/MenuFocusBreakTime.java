@@ -2,9 +2,13 @@ package com.example.ooclock;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -17,7 +21,8 @@ import android.widget.ViewFlipper;
 import java.util.concurrent.TimeUnit;
 
 public class MenuFocusBreakTime extends AppCompatActivity {
-
+    MediaPlayer mediaPlayer;
+    Vibrator vibrator;
     private ViewFlipper viewFlipper;
     Button btn_break;
     View back_flipper;
@@ -80,6 +85,13 @@ public class MenuFocusBreakTime extends AppCompatActivity {
                     public void onFinish() {
                         try {
                             txt_countdown.setText(R.string.end_countdown);
+                            mediaPlayer = MediaPlayer.create(MenuFocusBreakTime.this, R.raw.restart_sound);
+                            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                            mediaPlayer.setLooping(false);
+                            mediaPlayer.start();
+                            vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            long[] pattern = {0, 100, 1000};
+                            vibrator.vibrate(pattern, -1);
                             Intent intent = new Intent(MenuFocusBreakTime.this,MenuFocus.class);
                             startActivity(intent);
                             finish();
