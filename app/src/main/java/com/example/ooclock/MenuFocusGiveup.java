@@ -32,6 +32,7 @@ public class MenuFocusGiveup extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(MenuFocusGiveup.this, MenuFocus.class));
                 overridePendingTransition(0,0);
+                finish();
             }
         });
 

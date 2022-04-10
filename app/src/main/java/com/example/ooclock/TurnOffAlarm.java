@@ -34,10 +34,11 @@ public class TurnOffAlarm extends AppCompatActivity {
     }
 
     public void turnOffAlarm(View view) {
-        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
-        getApplicationContext().stopService(intentService);
+//        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
+//        getApplicationContext().stopService(intentService);
+//        finish();
+        Intent intent = new Intent(this, TurnOffAlarmMath.class);
+        startActivity(intent);
         finish();
-//        Intent intent = new Intent(this, TurnOffAlarmMath.class);
-//        startActivity(intent);
     }
 }
