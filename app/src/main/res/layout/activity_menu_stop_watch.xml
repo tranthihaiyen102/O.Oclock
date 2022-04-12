@@ -12,16 +12,15 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:layout_marginTop="42dp"
         android:text="@string/txt_timer"
         android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -36,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation" />
 
-    <View
+    <TextView
         android:id="@+id/view3"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -44,6 +43,9 @@
         android:layout_marginTop="42dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="24dp"
+        android:scrollbars = "vertical"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +76,8 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:background="@drawable/button"
+            android:onClick="onClickReset_Record"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view3" />
 
@@ -92,6 +96,8 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:background="@drawable/button"
+            android:onClick="onClickStart_Stop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view3" />
 

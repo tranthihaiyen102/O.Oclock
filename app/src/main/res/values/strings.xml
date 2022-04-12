@@ -16,7 +16,7 @@
     <string name="txt_time_now">Thứ 7, 12/03/2022</string>
     <string name="btn_start">Bắt đầu</string>
     <string name="btn_reset">Đặt lại</string>
-    <string name="txt_timer">00:00:00</string>
+    <string name="txt_timer">00:00:00.00</string>
     <string name="txt_update">Nâng cấp lên Pro</string>
     <string name="option_ux">Giao diện</string>
     <string name="option_lang">Ngôn ngữ</string>
@@ -66,6 +66,8 @@
     <string name="finish">Finish</string>
     <string name="picktime">Xin hãy chọn thời gian</string>
     <string name="end_countdown">00:00</string>
+    <string name="stop">Dừng</string>
+    <string name="record">Bấm</string>
     <string-array name="time_array">
         <item>25 phút</item>
         <item>30 phút</item>
