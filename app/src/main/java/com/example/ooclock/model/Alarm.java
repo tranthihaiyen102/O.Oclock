@@ -226,6 +226,11 @@ public class Alarm implements Comparable<Alarm> {
         alarmManager.cancel(alarmPendingIntent);
         this.started = false;
 
+        alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        intent = new Intent(context, NotiBroadcastReceiver.class);
+        alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, 0);
+        alarmManager.cancel(alarmPendingIntent);
+
         String toastText = String.format("Alarm cancelled for %02d:%02d with id %d", hour, minute, alarmId);
         Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
         Log.i("cancel", toastText);
