@@ -56,9 +56,11 @@ public class MenuStopWatch extends AppCompatActivity {
         id=1;
         prerecord=0;
         minus_time_start=0;
+
         runTimer();
         navigation();
     }
+
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState)
