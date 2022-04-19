@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver;
@@ -42,6 +43,12 @@ public class Alarm implements Comparable<Alarm> {
     private String title;
 
     private long created;
+
+    @Ignore
+    public Alarm(int hour, int minute){
+        this.hour = hour;
+        this.minute = minute;
+    }
 
     public Alarm(int alarmId, int hour, int minute, String title, long created, boolean started, boolean recurring, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday, boolean saturday, boolean sunday) {
         this.alarmId = alarmId;
@@ -190,12 +197,12 @@ public class Alarm implements Comparable<Alarm> {
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-        if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
-            calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) + 1);
-        }
         Log.d("An_test","Exact: "+calendar.getTime().getHours()+":"+calendar.getTime().getMinutes());
         calendar.add(Calendar.MINUTE,-NOTITIME);
         Log.d("An_test","Noti: "+calendar.getTime().getHours()+":"+calendar.getTime().getMinutes());
+        if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
+            calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) + 1);
+        }
         if (!recurring) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 alarmManager.setExact(
@@ -321,10 +328,123 @@ public class Alarm implements Comparable<Alarm> {
         return false;
     }
 
+    private boolean isToday() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        int today = calendar.get(Calendar.DAY_OF_WEEK);
+
+        switch(today) {
+            case Calendar.MONDAY:
+                if (monday)
+                    return true;
+                return false;
+            case Calendar.TUESDAY:
+                if (tuesday)
+                    return true;
+                return false;
+            case Calendar.WEDNESDAY:
+                if (wednesday)
+                    return true;
+                return false;
+            case Calendar.THURSDAY:
+                if (thursday)
+                    return true;
+                return false;
+            case Calendar.FRIDAY:
+                if (friday)
+                    return true;
+                return false;
+            case Calendar.SATURDAY:
+                if (saturday)
+                    return true;
+                return false;
+            case Calendar.SUNDAY:
+                if (sunday)
+                    return true;
+                return false;
+        }
+        return false;
+    }
+
+    private boolean isTomorow() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.add(24,Calendar.HOUR);
+        int tomorow = calendar.get(Calendar.DAY_OF_WEEK);
+
+        switch(tomorow) {
+            case Calendar.MONDAY:
+                if (monday)
+                    return true;
+                return false;
+            case Calendar.TUESDAY:
+                if (tuesday)
+                    return true;
+                return false;
+            case Calendar.WEDNESDAY:
+                if (wednesday)
+                    return true;
+                return false;
+            case Calendar.THURSDAY:
+                if (thursday)
+                    return true;
+                return false;
+            case Calendar.FRIDAY:
+                if (friday)
+                    return true;
+                return false;
+            case Calendar.SATURDAY:
+                if (saturday)
+                    return true;
+                return false;
+            case Calendar.SUNDAY:
+                if (sunday)
+                    return true;
+                return false;
+        }
+        return false;
+    }
+
+    public boolean willRingTomorow(){
+        return isStarted()&&((!recurring)||(recurring&&isTomorow()));
+    }
+
+    public boolean willRingToday(){
+        return isStarted()&&((!recurring)||(recurring&&isToday()));
+    }
+
     @Override
     public int compareTo(Alarm alarm) {
         if(hour==alarm.hour & minute==alarm.minute) return 0;
         else if(hour>alarm.hour | (hour==alarm.hour & minute>alarm.minute)) return 1;
         else return -1;
+    }
+
+    public Alarm minus(Alarm alarm) {
+        int h;
+        int m;
+        Alarm result;
+        if(this.compareTo(alarm)>=0){
+            if(hour==alarm.hour){
+                h=0;
+                m=minute-alarm.minute;
+            }
+            else {
+                if(minute>=alarm.minute){
+                    h=hour-alarm.hour;
+                    m=minute-alarm.minute;
+                }
+                else {
+                    h=hour-alarm.hour-1;
+                    m=60+minute-alarm.minute;
+                }
+            }
+            result= new Alarm(h,m);
+        }
+        else {
+            Alarm thisalarm = new Alarm(hour+24,minute);
+            result = thisalarm.minus(alarm);
+        }
+        return result;
     }
 }
