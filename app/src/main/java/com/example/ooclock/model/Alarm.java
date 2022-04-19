@@ -369,36 +369,35 @@ public class Alarm implements Comparable<Alarm> {
     private boolean isTomorow() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.add(24,Calendar.HOUR);
         int tomorow = calendar.get(Calendar.DAY_OF_WEEK);
 
         switch(tomorow) {
             case Calendar.MONDAY:
-                if (monday)
-                    return true;
-                return false;
-            case Calendar.TUESDAY:
                 if (tuesday)
                     return true;
                 return false;
-            case Calendar.WEDNESDAY:
+            case Calendar.TUESDAY:
                 if (wednesday)
                     return true;
                 return false;
-            case Calendar.THURSDAY:
+            case Calendar.WEDNESDAY:
                 if (thursday)
                     return true;
                 return false;
-            case Calendar.FRIDAY:
+            case Calendar.THURSDAY:
                 if (friday)
                     return true;
                 return false;
-            case Calendar.SATURDAY:
+            case Calendar.FRIDAY:
                 if (saturday)
                     return true;
                 return false;
-            case Calendar.SUNDAY:
+            case Calendar.SATURDAY:
                 if (sunday)
+                    return true;
+                return false;
+            case Calendar.SUNDAY:
+                if (monday)
                     return true;
                 return false;
         }
