@@ -66,7 +66,7 @@
         android:text="Quay lại tập trung nào!"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -93,6 +93,7 @@
         android:fontFamily="@font/montserrat_semibold"
         android:padding="10dp"
         android:text="Bắt đầu lại"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
