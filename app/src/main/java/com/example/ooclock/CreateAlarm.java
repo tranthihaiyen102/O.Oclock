@@ -173,7 +173,7 @@ public class CreateAlarm extends AppCompatActivity {
                 else{
                     updateAlarm(alarm);
                 }
-                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                finish();
             }
         });
     }
