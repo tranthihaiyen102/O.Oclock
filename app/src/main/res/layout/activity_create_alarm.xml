@@ -14,6 +14,7 @@
         android:background="@color/black"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -30,20 +31,20 @@
 
     <TextView
         android:id="@+id/textTimePicker"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="115dp"
-        android:layout_marginEnd="84dp"
-        android:gravity="top"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textAlignment="center"
         android:hint="@string/some_id"
-        android:textColorHint="@color/white"
         android:textColor="@android:color/white"
+        android:textColorHint="@color/white"
         android:textSize="65sp"
         android:textStyle="bold"
-        android:fontFamily="@font/montserrat_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -98,18 +99,18 @@
 
         <CheckBox
             android:id="@+id/mon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/t2"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:button="@android:color/transparent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/check_box"
-            android:textAlignment="center"/>
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="@string/t2"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <Space
             android:layout_width="@dimen/spacing"
@@ -118,11 +119,11 @@
 
         <CheckBox
             android:id="@+id/tue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:text="@string/t3"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:fontFamily="@font/montserrat_semibold"
             android:button="@android:color/transparent"
             android:background="@drawable/check_box"
@@ -135,11 +136,11 @@
 
         <CheckBox
             android:id="@+id/wed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:text="@string/t4"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:fontFamily="@font/montserrat_semibold"
             android:button="@android:color/transparent"
             android:background="@drawable/check_box"
@@ -152,11 +153,11 @@
 
         <CheckBox
             android:id="@+id/thu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:text="@string/t5"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:fontFamily="@font/montserrat_semibold"
             android:button="@android:color/transparent"
             android:background="@drawable/check_box"
@@ -169,11 +170,11 @@
 
         <CheckBox
             android:id="@+id/fri"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:text="@string/t6"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:fontFamily="@font/montserrat_semibold"
             android:button="@android:color/transparent"
             android:background="@drawable/check_box"
@@ -186,11 +187,11 @@
 
         <CheckBox
             android:id="@+id/sat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:text="@string/t7"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:fontFamily="@font/montserrat_semibold"
             android:button="@android:color/transparent"
             android:background="@drawable/check_box"
@@ -203,161 +204,18 @@
 
         <CheckBox
             android:id="@+id/sun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginRight="6dp"
             android:text="@string/cn"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:fontFamily="@font/montserrat_semibold"
             android:button="@android:color/transparent"
             android:background="@drawable/check_box"
             android:textAlignment="center"/>
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_mon"-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:background="@drawable/btn"-->
-<!--            android:fontFamily="@font/montserrat_semibold"-->
-<!--            android:paddingLeft="0dp"-->
-<!--            android:paddingTop="0dp"-->
-<!--            android:paddingEnd="0dp"-->
-<!--            android:paddingRight="0dp"-->
-<!--            android:paddingBottom="0dp"-->
-<!--            android:text="@string/t2"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="15sp" />-->
-
-<!--        <Space-->
-<!--            android:layout_width="10dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_tue"-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:background="@drawable/btn_t2"-->
-<!--            android:paddingLeft="0dp"-->
-<!--            android:paddingTop="0dp"-->
-<!--            android:paddingEnd="0dp"-->
-<!--            android:paddingRight="0dp"-->
-<!--            android:paddingBottom="0dp"-->
-<!--            android:text="@string/t3"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="15sp"-->
-<!--            android:fontFamily="@font/montserrat_semibold"-->
-<!--            tools:ignore="TouchTargetSizeCheck"/>-->
-
-<!--        <Space-->
-<!--            android:layout_width="10dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_wed"-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:background="@drawable/btn_t2"-->
-<!--            android:paddingLeft="0dp"-->
-<!--            android:paddingTop="0dp"-->
-<!--            android:paddingEnd="0dp"-->
-<!--            android:paddingRight="0dp"-->
-<!--            android:paddingBottom="0dp"-->
-<!--            android:text="@string/t4"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="15sp"-->
-<!--            android:fontFamily="@font/montserrat_semibold"-->
-<!--            tools:ignore="TouchTargetSizeCheck"/>-->
-
-<!--        <Space-->
-<!--            android:layout_width="10dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_thur"-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:background="@drawable/btn_t2"-->
-<!--            android:paddingLeft="0dp"-->
-<!--            android:paddingTop="0dp"-->
-<!--            android:paddingEnd="0dp"-->
-<!--            android:paddingRight="0dp"-->
-<!--            android:paddingBottom="0dp"-->
-<!--            android:text="@string/t5"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="15sp"-->
-<!--            android:fontFamily="@font/montserrat_semibold"-->
-<!--            tools:ignore="TouchTargetSizeCheck"/>-->
-
-<!--        <Space-->
-<!--            android:layout_width="10dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_fri"-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:background="@drawable/btn_t2"-->
-<!--            android:paddingLeft="0dp"-->
-<!--            android:paddingTop="0dp"-->
-<!--            android:paddingEnd="0dp"-->
-<!--            android:paddingRight="0dp"-->
-<!--            android:paddingBottom="0dp"-->
-<!--            android:text="@string/t6"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="15sp"-->
-<!--            android:fontFamily="@font/montserrat_semibold"-->
-<!--            tools:ignore="TouchTargetSizeCheck"/>-->
-
-<!--        <Space-->
-<!--            android:layout_width="10dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_sat"-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:background="@drawable/btn_t2"-->
-<!--            android:paddingLeft="0dp"-->
-<!--            android:paddingTop="0dp"-->
-<!--            android:paddingEnd="0dp"-->
-<!--            android:paddingRight="0dp"-->
-<!--            android:paddingBottom="0dp"-->
-<!--            android:text="@string/t7"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="15sp"-->
-<!--            android:fontFamily="@font/montserrat_semibold"-->
-<!--            tools:ignore="TouchTargetSizeCheck"/>-->
-
-<!--        <Space-->
-<!--            android:layout_width="10dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_sun"-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:background="@drawable/btn_t2"-->
-<!--            android:paddingLeft="0dp"-->
-<!--            android:paddingTop="0dp"-->
-<!--            android:paddingEnd="0dp"-->
-<!--            android:paddingRight="0dp"-->
-<!--            android:paddingBottom="0dp"-->
-<!--            android:text="@string/cn"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="15sp"-->
-<!--            android:fontFamily="@font/montserrat_semibold"-->
-<!--            tools:ignore="TouchTargetSizeCheck"/>-->
-
-
     </LinearLayout>
 
     <RelativeLayout
@@ -418,32 +276,6 @@
             android:textColor="@color/white"
             android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="parent" />
-
-        <!--        <Spinner-->
-        <!--            android:id="@+id/turnOffAlarm"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="50dp"-->
-        <!--            android:layout_below="@+id/editTextLabel"-->
-        <!--            android:layout_alignParentStart="true"-->
-        <!--            android:layout_alignParentEnd="true"-->
-        <!--            android:layout_alignParentBottom="true"-->
-        <!--            android:layout_marginStart="20dp"-->
-        <!--            android:layout_marginTop="20dp"-->
-        <!--            android:layout_marginEnd="20dp"-->
-        <!--            android:layout_marginBottom="216dp"-->
-        <!--            android:background="@drawable/turn_off_alarm"-->
-        <!--            android:gravity="end"-->
-        <!--            android:padding="0dp"-->
-        <!--            android:paddingStart="0dp"-->
-        <!--            android:paddingLeft="0dp"-->
-        <!--            android:paddingTop="0dp"-->
-        <!--            android:paddingEnd="0dp"-->
-        <!--            android:paddingRight="0dp"-->
-        <!--            android:paddingBottom="0dp"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-
-        <!--            tools:ignore="SpeakableTextPresentCheck" />-->
 
     </RelativeLayout>
 
