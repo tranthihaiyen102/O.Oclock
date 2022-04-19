@@ -57,13 +57,13 @@ public class MenuFocusBreakTime extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         Log.d("An_Test","Touch up");
                         float finalX = motionEvent.getX();
-                        if (initialX > finalX) {
+                        if ((initialX-finalX) > 0) {
                             Animation in = AnimationUtils.loadAnimation(getApplication(), R.anim.slide_in_right);
                             Animation out = AnimationUtils.loadAnimation(getApplication(), R.anim.slide_out_left);
                             viewFlipper.setOutAnimation(out);
                             viewFlipper.setInAnimation(in);
                             viewFlipper.showNext();
-                        } else {
+                        } else if((finalX-initialX) > 0){
                             Animation in = AnimationUtils.loadAnimation(getApplication(), android.R.anim.slide_in_left);
                             Animation out = AnimationUtils.loadAnimation(getApplication(), android.R.anim.slide_out_right);
                             viewFlipper.setOutAnimation(out);
@@ -75,6 +75,7 @@ public class MenuFocusBreakTime extends AppCompatActivity {
                 return true;
             }
         });
+
 
         btn_break = findViewById(R.id.btn_break);
         back_flipper = findViewById(R.id.back_flipper);
