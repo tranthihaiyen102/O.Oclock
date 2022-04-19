@@ -5,12 +5,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -33,14 +35,32 @@ public class MenuFocus extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.menu_focus);
         viewFlipper = (ViewFlipper) findViewById(R.id.viewflipper);
 
+        viewFlipper.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                float initialX = 0;
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        initialX = motionEvent.getX();
+                        break;
 
-
-        Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
-        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
-
-
-        viewFlipper.setOutAnimation(out);
-        viewFlipper.setInAnimation(in);
+                    case MotionEvent.ACTION_UP:
+                        float finalX = motionEvent.getX();
+                        if (initialX > finalX) {
+                            if (viewFlipper.getDisplayedChild() == 1)
+                                break;
+                            viewFlipper.showPrevious();
+                        } else {
+                            if (viewFlipper.getDisplayedChild() == 0)
+                                break;
+                            viewFlipper.showNext();
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
 
 
         Button btn_setTimer = (Button) findViewById(R.id.btn_timer);
@@ -146,8 +166,16 @@ public class MenuFocus extends AppCompatActivity {
 
     public void flipper(View view) {
         if (view.getId() == R.id.forward_flipper){
+            Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
+            Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
+            viewFlipper.setOutAnimation(out);
+            viewFlipper.setInAnimation(in);
             viewFlipper.showNext();
         } else if (view.getId() == R.id.back_flipper) {
+            Animation in = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
+            Animation out = AnimationUtils.loadAnimation(this, R.anim.slide_out_left);
+            viewFlipper.setOutAnimation(out);
+            viewFlipper.setInAnimation(in);
             viewFlipper.showPrevious();
         }
     }

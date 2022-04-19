@@ -41,14 +41,6 @@ public class MenuFocusBreakTime extends AppCompatActivity {
 
         viewFlipper = (ViewFlipper) findViewById(R.id.viewflipper);
 
-
-
-        Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
-        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
-
-
-        viewFlipper.setOutAnimation(out);
-        viewFlipper.setInAnimation(in);
         btn_break = findViewById(R.id.btn_break);
         back_flipper = findViewById(R.id.back_flipper);
         forward_flipper = findViewById(R.id.forward_flipper);
@@ -105,8 +97,16 @@ public class MenuFocusBreakTime extends AppCompatActivity {
 
     public void flipper(View view) {
         if (view.getId() == R.id.forward_flipper){
+            Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
+            Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
+            viewFlipper.setOutAnimation(out);
+            viewFlipper.setInAnimation(in);
             viewFlipper.showNext();
         } else if (view.getId() == R.id.back_flipper) {
+            Animation in = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
+            Animation out = AnimationUtils.loadAnimation(this, R.anim.slide_out_left);
+            viewFlipper.setOutAnimation(out);
+            viewFlipper.setInAnimation(in);
             viewFlipper.showPrevious();
         }
     }
