@@ -95,7 +95,8 @@
         <service
             android:name=".service.AlarmService"
             android:enabled="true" />
-        <service android:name=".service.AlarmNotificationService" />
+        <service android:name=".service.AlarmNotificationService"
+            android:enabled="true"/>
         <service android:name=".service.RescheduleAlarmsService" />
 
     </application>
