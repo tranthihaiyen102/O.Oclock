@@ -14,14 +14,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OOclock">
-
+        <activity
+            android:name=".OtherOptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SoundOptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WayTurnOffActivity"
+            android:exported="false" />
         <activity
             android:name=".TurnOffAlarmMath"
             android:exported="false" />
         <activity
             android:name=".TurnOffAlarm"
             android:exported="false" />
-
         <activity
             android:name=".StartScreen"
             android:exported="true">
@@ -72,9 +79,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
 
         <receiver
             android:name=".broadcastreceiver.AlarmBroadcastReceiver"
@@ -83,21 +88,21 @@
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".broadcastreceiver.NotiBroadcastReceiver"
-            android:enabled="true"/>
+            android:enabled="true" />
 
         <service
             android:name=".service.AlarmService"
             android:enabled="true" />
-        <service android:name=".service.AlarmNotificationService"
-            android:enabled="true"/>
+        <service
+            android:name=".service.AlarmNotificationService"
+            android:enabled="true" />
         <service android:name=".service.RescheduleAlarmsService" />
-
     </application>
 
 </manifest>

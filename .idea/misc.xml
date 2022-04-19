@@ -77,6 +77,8 @@
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_settings_noti.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_settings_ux.xml" value="0.25" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock/app/src/main/res/layout/activity_menu_stop_watch.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/drawable-xxxhdpi/container_bg.xml" value="0.2225" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/drawable-xxxhdpi/radio_selector_3.xml" value="0.2225" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/drawable/btn.xml" value="0.2225" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/drawable/btn_number.xml" value="0.2225" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/drawable/btn_t2.xml" value="0.2225" />
@@ -99,7 +101,10 @@
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/layout/activity_menu_settings.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/layout/activity_menu_settings_ux.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/layout/activity_menu_stop_watch.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/layout/activity_other_option.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/layout/activity_sound_option.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/layout/activity_start_screen.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Laptop TTC/AndroidStudioProjects/O.Oclock3/app/src/main/res/layout/activity_way_turn_off.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/O.Oclock_tuanan/app/src/main/res/drawable-xxhdpi/ic_alarm_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/O.Oclock_tuanan/app/src/main/res/drawable/bg_color.xml" value="0.1" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/O.Oclock_tuanan/app/src/main/res/drawable/container1.xml" value="0.1" />
