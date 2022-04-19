@@ -127,7 +127,7 @@ public class TurnOffAlarmMath extends AppCompatActivity {
 
     public int toan_2(){
         int so1, so2;
-        int min=1;
+        int min=10;
         int max=99;
         so1= min + (int)(Math.random() * ((max - min) + 1));
         so2= min + (int)(Math.random() * ((max - min) + 1));
@@ -137,7 +137,7 @@ public class TurnOffAlarmMath extends AppCompatActivity {
 
     public int toan_3(){
         int so1, so2, so3;
-        int min=1;
+        int min=10;
         int max=99;
         so1= min + (int)(Math.random() * ((max - min) + 1));
         so2= min + (int)(Math.random() * ((max - min) + 1));
@@ -147,18 +147,19 @@ public class TurnOffAlarmMath extends AppCompatActivity {
     }
     public int toan_4(){
         int so1, so2, so3;
-        int min=1;
+        int min=10;
+        int min2=1;
         int max=99;
         int max2=9;
         so1= min + (int)(Math.random() * ((max - min) + 1));
-        so2= min + (int)(Math.random() * ((max2 - min) + 1));
+        so2= min2 + (int)(Math.random() * ((max2 - min2) + 1));
         so3= min + (int)(Math.random() * ((max - min) + 1));
         txtPhepToan.setText("("+so1+"x"+so2+")+"+so3);
         return ((so1*so2)+so3);
     }
     public int toan_5(){
         int so1, so2;
-        int min=1;
+        int min=10;
         int max=99;
         so1= min + (int)(Math.random() * ((max - min) + 1));
         so2= min + (int)(Math.random() * ((max - min) + 1));
@@ -167,7 +168,7 @@ public class TurnOffAlarmMath extends AppCompatActivity {
     }
     public int toan_6(){
         int so1, so2,so3;
-        int min=1;
+        int min=10;
         int max=99;
         so1= min + (int)(Math.random() * ((max - min) + 1));
         so2= min + (int)(Math.random() * ((max - min) + 1));
