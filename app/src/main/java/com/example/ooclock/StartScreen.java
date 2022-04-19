@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
+
+import android.os.Handler;
+
 
 public class StartScreen extends AppCompatActivity {
 
@@ -12,13 +14,12 @@ public class StartScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
-
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        startActivity(new Intent(StartScreen.this, MainActivity.class));
-        finish();
-        return super.onTouchEvent(event);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(StartScreen.this, MainActivity.class));
+                finish();
+            }
+        }, 1000);
     }
 }
