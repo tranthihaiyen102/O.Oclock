@@ -40,6 +40,7 @@ public class TurnOffAlarmMath extends AppCompatActivity {
     @BindView(R.id.button_0) Button button_0;
     int result;
     int sobai;
+    int conlai;
     int bai;
     View.OnClickListener numberOnClick = new View.OnClickListener() {
         @Override
@@ -75,12 +76,16 @@ public class TurnOffAlarmMath extends AppCompatActivity {
             }
         });
 
+        sobai=3;
+        conlai=sobai;
 //        result = toan_1();
 //        result = toan_2();
 //        result = toan_3();
 //        result = toan_4();
         result = toan_5();
 //        result = toan_6();
+        conlai--;
+        quiz_page.setText((sobai-conlai)+"/"+sobai);
         Log.d("An_Test",result+"");
         btn_OK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,9 +97,17 @@ public class TurnOffAlarmMath extends AppCompatActivity {
                 else kq=0;
                 if(kq==result) {
                     Toast.makeText(getBaseContext(), "Correct answer", Toast.LENGTH_LONG).show();
-                    Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
-                    getApplicationContext().stopService(intentService);
-                    finish();
+                    if(conlai>0){
+                        result = toan_5();
+                        conlai--;
+                        quiz_page.setText((sobai-conlai)+"/"+sobai);
+                        txt_DauBang.setText("= ");
+                    }
+                    else {
+                        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
+                        getApplicationContext().stopService(intentService);
+                        finish();
+                    }
                 }
                 else
                     Toast.makeText(getBaseContext(),"Incorrect answer",Toast.LENGTH_LONG).show();
@@ -114,7 +127,7 @@ public class TurnOffAlarmMath extends AppCompatActivity {
 
     public int toan_2(){
         int so1, so2;
-        int min=1;
+        int min=10;
         int max=99;
         so1= min + (int)(Math.random() * ((max - min) + 1));
         so2= min + (int)(Math.random() * ((max - min) + 1));
@@ -124,7 +137,7 @@ public class TurnOffAlarmMath extends AppCompatActivity {
 
     public int toan_3(){
         int so1, so2, so3;
-        int min=1;
+        int min=10;
         int max=99;
         so1= min + (int)(Math.random() * ((max - min) + 1));
         so2= min + (int)(Math.random() * ((max - min) + 1));
@@ -134,18 +147,19 @@ public class TurnOffAlarmMath extends AppCompatActivity {
     }
     public int toan_4(){
         int so1, so2, so3;
-        int min=1;
+        int min=10;
+        int min2=1;
         int max=99;
         int max2=9;
         so1= min + (int)(Math.random() * ((max - min) + 1));
-        so2= min + (int)(Math.random() * ((max2 - min) + 1));
+        so2= min2 + (int)(Math.random() * ((max2 - min2) + 1));
         so3= min + (int)(Math.random() * ((max - min) + 1));
         txtPhepToan.setText("("+so1+"x"+so2+")+"+so3);
         return ((so1*so2)+so3);
     }
     public int toan_5(){
         int so1, so2;
-        int min=1;
+        int min=10;
         int max=99;
         so1= min + (int)(Math.random() * ((max - min) + 1));
         so2= min + (int)(Math.random() * ((max - min) + 1));
@@ -154,7 +168,7 @@ public class TurnOffAlarmMath extends AppCompatActivity {
     }
     public int toan_6(){
         int so1, so2,so3;
-        int min=1;
+        int min=10;
         int max=99;
         so1= min + (int)(Math.random() * ((max - min) + 1));
         so2= min + (int)(Math.random() * ((max - min) + 1));
