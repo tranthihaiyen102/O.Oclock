@@ -89,8 +89,7 @@
 
         <receiver
             android:name=".broadcastreceiver.NotiBroadcastReceiver"
-            android:enabled="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"></receiver>
+            android:enabled="true"/>
 
         <service
             android:name=".service.AlarmService"
