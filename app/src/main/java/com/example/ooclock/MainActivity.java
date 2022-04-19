@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
                     for (Alarm alarm : alarms) {
                         if (alarm.compareTo(currentalarm) >= 0 && alarm.willRingToday()) {
                             Alarm minusalarm = alarm.minus(currentalarm);
-                            txtMessage.setText("Chuông báo thức sau "+minusalarm.getHour()+" giờ "+minusalarm.getMinute()+" phút");
+                            txtMessage.setText("Chuông báo thức sau \n"+minusalarm.getHour()+" giờ "+minusalarm.getMinute()+" phút");
                             willRing24h = true;
                             break;
                         }
@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
                         for (Alarm alarm : alarms) {
                             if (alarm.compareTo(currentalarm) < 0 && alarm.willRingTomorow()) {
                                 Alarm minusalarm = alarm.minus(currentalarm);
-                                txtMessage.setText("Chuông báo thức sau "+minusalarm.getHour()+" giờ "+minusalarm.getMinute()+" phút");
+                                txtMessage.setText("Chuông báo thức sau \n"+minusalarm.getHour()+" giờ "+minusalarm.getMinute()+" phút");
                                 willRing24h = true;
                                 break;
                             }
                         }
                     if (!willRing24h) {
-                        txtMessage.setText("Không có chuông báo thức nào sẽ kêu trong 24h tới");
+                        txtMessage.setText("Không có chuông báo thức nào trong 24h tới");
                     }
                 }
             }
