@@ -82,21 +82,25 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
                     case R.id.menu_clock:
                         startActivity(new Intent(getApplicationContext(), MenuClock.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.menu_focus:
                         startActivity(new Intent(getApplicationContext(), MenuFocus.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.menu_stopwatch:
                         startActivity(new Intent(getApplicationContext(), MenuStopWatch.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.menu_settings:
                         startActivity(new Intent(getApplicationContext(), MenuSettings.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.menu_alarm:

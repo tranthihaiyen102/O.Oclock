@@ -29,21 +29,25 @@ public class MenuClock extends AppCompatActivity {
                     case R.id.menu_alarm:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.menu_focus:
                         startActivity(new Intent(getApplicationContext(), MenuFocus.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.menu_stopwatch:
                         startActivity(new Intent(getApplicationContext(), MenuStopWatch.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.menu_settings:
                         startActivity(new Intent(getApplicationContext(), MenuSettings.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
 
                     case R.id.menu_clock:

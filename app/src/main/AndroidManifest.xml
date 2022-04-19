@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ooclock">
+
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -21,9 +22,15 @@
             android:name=".TurnOffAlarm"
             android:exported="false" />
 
-        <!--<activity
+        <activity
             android:name=".StartScreen"
-            android:exported="false" />-->
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MenuFocusBreakTime"
             android:exported="false" />
@@ -35,7 +42,7 @@
             android:exported="false" />
         <activity
             android:name=".CreateAlarm"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".MenuSettingsHelp"
             android:exported="false" />
@@ -65,30 +72,31 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
-        <receiver android:enabled="true" android:name=".broadcastreceiver.AlarmBroadcastReceiver"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
-            android:exported="false">
+        <receiver
+            android:name=".broadcastreceiver.AlarmBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <receiver android:enabled="true" android:name=".broadcastreceiver.NotiBroadcastReceiver"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-        </receiver>
+        <receiver
+            android:name=".broadcastreceiver.NotiBroadcastReceiver"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"></receiver>
 
-        <service android:enabled="true" android:name=".service.AlarmService"/>
-        <service android:name=".service.AlarmNotificationService"/>
-        <service android:name=".service.RescheduleAlarmsService"/>
+        <service
+            android:name=".service.AlarmService"
+            android:enabled="true" />
+        <service android:name=".service.AlarmNotificationService" />
+        <service android:name=".service.RescheduleAlarmsService" />
 
     </application>
 
