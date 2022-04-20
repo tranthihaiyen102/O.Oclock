@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toolbar;
 
 import com.example.ooclock.data.AlarmModel;
 import com.example.ooclock.model.Alarm;
@@ -69,15 +70,7 @@ public class CreateAlarm extends AppCompatActivity {
 
         int alarmId = getIntent().getIntExtra("alarmId",-1);
         if(alarmId!=-1) alarm = createAlarmViewModel.getAlarmbyId(alarmId);
-//        spinner_turnOffAlarm = findViewById(R.id.turnOffAlarm);
 
-//        ArrayList<String> arrTurnOffAlarm = new ArrayList<String>();
-//        arrTurnOffAlarm.add("Giải toán");
-//        arrTurnOffAlarm.add("Chuông báo");
-//
-//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, arrTurnOffAlarm);
-//        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner_turnOffAlarm.setAdapter(arrayAdapter);
         CompoundButton.OnCheckedChangeListener weekdayListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {

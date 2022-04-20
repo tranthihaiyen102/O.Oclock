@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
                             }
                         }
                     if (!willRing24h) {
-                        txtMessage.setText("Không có chuông báo thức nào trong 24h tới");
+                        txtMessage.setText("Không có báo thức nào được bật");
                     }
                 }
             }
