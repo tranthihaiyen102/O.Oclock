@@ -37,6 +37,15 @@ public class MenuStopWatch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_stop_watch);
         runed=false;
+        btn_rr = findViewById(R.id.btn_reset);
+        btn_ss = findViewById(R.id.button2);
+        txt_time = findViewById(R.id.textView);
+        record_view = findViewById(R.id.view3);
+        record_view.setMovementMethod(new ScrollingMovementMethod());
+        id=1;
+        prerecord=0;
+        minus_time_start=0;
+
         if (savedInstanceState != null) {
             milisecs
                     = savedInstanceState
@@ -47,15 +56,29 @@ public class MenuStopWatch extends AppCompatActivity {
             wasRunning
                     = savedInstanceState
                     .getBoolean("wasRunning");
+            start=savedInstanceState
+                    .getLong("start", 0L);
+            minus_time_start=savedInstanceState
+                    .getLong("minus_time_start", 0L);
+            runed=savedInstanceState
+                    .getBoolean("runed", false);
+            record=savedInstanceState
+                    .getLong("record", 0L);
+            prerecord=savedInstanceState
+                    .getLong("prerecord", 0L);
+            id=savedInstanceState
+                    .getInt("id", 0);
+            record_view.setText(savedInstanceState.getString("record_view_string"));
+            txt_time.setText(savedInstanceState.getString("txt_time_string"));
+            if(running){
+                btn_rr.setText(R.string.btn_reset);
+                btn_ss.setText(R.string.btn_start);
+            }
+            else {
+                btn_rr.setText(R.string.record);
+                btn_ss.setText(R.string.stop);
+            }
         }
-        btn_rr = findViewById(R.id.btn_reset);
-        btn_ss = findViewById(R.id.button2);
-        txt_time = findViewById(R.id.textView);
-        record_view = findViewById(R.id.view3);
-        record_view.setMovementMethod(new ScrollingMovementMethod());
-        id=1;
-        prerecord=0;
-        minus_time_start=0;
 
         runTimer();
         navigation();
@@ -72,6 +95,20 @@ public class MenuStopWatch extends AppCompatActivity {
                 .putBoolean("running", running);
         savedInstanceState
                 .putBoolean("wasRunning", wasRunning);
+        savedInstanceState
+                .putLong("start", start);
+        savedInstanceState
+                .putLong("minus_time_start", minus_time_start);
+        savedInstanceState
+                .putBoolean("runed", runed);
+        savedInstanceState
+                .putLong("record", record);
+        savedInstanceState
+                .putLong("prerecord", prerecord);
+        savedInstanceState
+                .putInt("id", id);
+        savedInstanceState.putString("record_view_string",record_view.getText().toString());
+        savedInstanceState.putString("txt_time_string",txt_time.getText().toString());
     }
 
     // If the activity is paused,
