@@ -234,4 +234,19 @@ public class CreateAlarm extends AppCompatActivity {
     public boolean checkEveryDay(){
         return mon.isChecked()&tue.isChecked()&wed.isChecked()&thu.isChecked()&fri.isChecked()&sat.isChecked()&sun.isChecked();
     }
+
+    public void chooseWay(View view) {
+        Intent intent = new Intent(this, WayTurnOffActivity.class);
+        startActivity(intent);
+    }
+
+    public void soundOption(View view) {
+        Intent intent = new Intent(this, SoundOptionActivity.class);
+        startActivity(intent);
+    }
+
+    public void chooseOtherOption(View view) {
+        Intent intent = new Intent(this, OtherOptionActivity.class);
+        startActivity(intent);
+    }
 }
