@@ -288,7 +288,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_add_alarm"
+        app:srcCompat="@drawable/ic_add_new_alarm"
         android:onClick="addNewAlarm"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
