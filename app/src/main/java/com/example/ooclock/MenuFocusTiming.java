@@ -45,6 +45,7 @@ public class MenuFocusTiming extends AppCompatActivity {
     CountDownTimer count;
     WindowInsetsControllerCompat windowInsetsController;
     boolean touch;
+    boolean finish;
     int reset_touch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +98,7 @@ public class MenuFocusTiming extends AppCompatActivity {
         time = Integer.parseInt(countdown_time.split(":")[0]);
         millis= time * 1000;
         reset_touch=0;
+        finish=false;
         count = new CountDownTimer(time * 1000, 1000) {
             public void onTick(long millisUntilFinished) {
                 reset_touch++;
@@ -123,6 +125,7 @@ public class MenuFocusTiming extends AppCompatActivity {
                     vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                     long[] pattern = {0, 100, 1000};
                     vibrator.vibrate(pattern, -1);
+                    finish=true;
                     Intent intent = new Intent(MenuFocusTiming.this,MenuFocusBreakTime.class);
                     startActivity(intent);
                     finish();
@@ -158,5 +161,13 @@ public class MenuFocusTiming extends AppCompatActivity {
             touch=true;
         }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        if(!finish){
+            Log.d("An_Test","LEAVE");
+        }
+        super.onUserLeaveHint();
     }
 }
