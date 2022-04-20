@@ -16,6 +16,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.PersistableBundle;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -38,7 +39,7 @@ public class MenuFocusTiming extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     Vibrator vibrator;
     TextView txt_countdown;
-    int millis;
+    long millis;
     String format_time;
     String countdown_time;
     int time;
@@ -96,43 +97,84 @@ public class MenuFocusTiming extends AppCompatActivity {
         txt_countdown = findViewById(R.id.txt_countdown);
         countdown_time = getIntent().getStringExtra("countdown_time");
         time = Integer.parseInt(countdown_time.split(":")[0]);
-        millis= time * 1000;
+        millis= time * 1000L;
         reset_touch=0;
         finish=false;
-        count = new CountDownTimer(time * 1000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                reset_touch++;
-                if(reset_touch%2==1){
-                    windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
-                    touch=false;
+        if(savedInstanceState!=null){
+            millis=savedInstanceState.getLong("millis",0L);
+            count = new CountDownTimer(millis, 1000) {
+                public void onTick(long millisUntilFinished) {
+                    reset_touch++;
+                    if (reset_touch % 2 == 1) {
+                        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+                        touch = false;
+                    }
+                    Log.d("An_Test", millis + "");
+                    format_time = String.format("%02d:%02d",
+                            TimeUnit.MILLISECONDS.toMinutes(millis) -
+                                    TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), // The change is in this line
+                            TimeUnit.MILLISECONDS.toSeconds(millis) -
+                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+                    txt_countdown.setText(format_time);
+                    millis -= 1000;
                 }
-                Log.d("An_Test",millis+"");
-                format_time = String.format("%02d:%02d",
-                        TimeUnit.MILLISECONDS.toMinutes(millis) -
-                                TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), // The change is in this line
-                        TimeUnit.MILLISECONDS.toSeconds(millis) -
-                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
-                txt_countdown.setText(format_time);
-                millis-=1000;
-            }
-            public void onFinish() {
-                try {
-                    txt_countdown.setText(R.string.end_countdown);
-                    mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.finish_sound);
-                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                    mediaPlayer.setLooping(false);
-                    mediaPlayer.start();
-                    vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    long[] pattern = {0, 100, 1000};
-                    vibrator.vibrate(pattern, -1);
-                    finish=true;
-                    Intent intent = new Intent(MenuFocusTiming.this,MenuFocusBreakTime.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception ex) {
+
+                public void onFinish() {
+                    try {
+                        txt_countdown.setText(R.string.end_countdown);
+                        mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.finish_sound);
+                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                        mediaPlayer.setLooping(false);
+                        mediaPlayer.start();
+                        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        long[] pattern = {0, 100, 1000};
+                        vibrator.vibrate(pattern, -1);
+                        finish = true;
+                        Intent intent = new Intent(MenuFocusTiming.this, MenuFocusBreakTime.class);
+                        startActivity(intent);
+                        finish();
+                    } catch (Exception ex) {
+                    }
                 }
-            }
-        }.start();
+            }.start();
+        }
+        else {
+            count = new CountDownTimer(time * 1000L, 1000) {
+                public void onTick(long millisUntilFinished) {
+                    reset_touch++;
+                    if (reset_touch % 2 == 1) {
+                        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+                        touch = false;
+                    }
+                    Log.d("An_Test", millis + "");
+                    format_time = String.format("%02d:%02d",
+                            TimeUnit.MILLISECONDS.toMinutes(millis) -
+                                    TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), // The change is in this line
+                            TimeUnit.MILLISECONDS.toSeconds(millis) -
+                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+                    txt_countdown.setText(format_time);
+                    millis -= 1000;
+                }
+
+                public void onFinish() {
+                    try {
+                        txt_countdown.setText(R.string.end_countdown);
+                        mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.finish_sound);
+                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                        mediaPlayer.setLooping(false);
+                        mediaPlayer.start();
+                        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        long[] pattern = {0, 100, 1000};
+                        vibrator.vibrate(pattern, -1);
+                        finish = true;
+                        Intent intent = new Intent(MenuFocusTiming.this, MenuFocusBreakTime.class);
+                        startActivity(intent);
+                        finish();
+                    } catch (Exception ex) {
+                    }
+                }
+            }.start();
+        }
     }
 
     @Override
@@ -161,6 +203,13 @@ public class MenuFocusTiming extends AppCompatActivity {
             touch=true;
         }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putLong("millis",millis);
+        count.cancel();
     }
 
     @Override
