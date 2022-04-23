@@ -7,7 +7,7 @@
     android:background="@color/dark_grey"
     tools:context=".SoundOptionActivity">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_UX"
+        android:id="@+id/toolbar_sound_option"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/black"
@@ -26,6 +26,17 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/ic_left_flipper"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar_sound_option"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_sound_option"
+        android:onClick="back"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

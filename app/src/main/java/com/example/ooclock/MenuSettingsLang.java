@@ -29,4 +29,8 @@ public class MenuSettingsLang extends AppCompatActivity {
                 break;
         }
     }
+
+    public void back(View view) {
+        finish();
+    }
 }
