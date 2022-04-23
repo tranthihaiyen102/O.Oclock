@@ -1,15 +1,20 @@
 package com.example.ooclock;
 
+import static com.example.ooclock.application.App.CHANNEL_ID;
 import static com.example.ooclock.broadcastreceiver.NotiBroadcastReceiver.NOTITIME;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -216,7 +221,18 @@ public class MenuFocusTiming extends AppCompatActivity {
     protected void onUserLeaveHint() {
         if(!finish){
             Log.d("An_Test","LEAVE");
+            displayNotification();
         }
         super.onUserLeaveHint();
+    }
+
+    public void displayNotification() {
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.img_focus)
+                .setContentTitle("Bạn làm gà buồn lắm đấy :(")
+                .setContentText("Đang trong lúc tập trung mà bạn sử dụng điện thoại vậy!")
+                .build();
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(1, notification);
     }
 }
