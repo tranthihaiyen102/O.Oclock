@@ -214,7 +214,8 @@ public class MenuStopWatch extends AppCompatActivity {
     {
         if(runed){
             record = milisecs;
-            record_view.setText("\n"+"     #"+id_toString(id)+format_time(record,false)+"       "+format_time(record-prerecord,false)+record_view.getText());
+            String recordText=String.format("%-5s          %12s          %12s","#"+id,format_time(record,false),format_time(record-prerecord,false));
+            record_view.setText("\n"+recordText+record_view.getText());
             id++;
             prerecord = milisecs;
         }
@@ -229,17 +230,6 @@ public class MenuStopWatch extends AppCompatActivity {
             record_view.setText("");
         }
     }
-
-    public String id_toString(int id){
-        String id_str;
-        if(id<10) id_str=id+"        ";
-        else if(id<100) id_str=id+"      ";
-        else if(id<1000) id_str=id+"    ";
-        else if(id<10000) id_str=id+"  ";
-        else id_str=id+"";
-        return id_str;
-    }
-
 
     private void runTimer()
     {
