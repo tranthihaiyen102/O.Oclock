@@ -76,6 +76,7 @@
         android:layout_marginEnd="20dp"
         android:text="@string/cbo_hangNgay"
         android:textColor="@android:color/white"
+        android:button="@drawable/checkbox2"
         android:textSize="13sp"
         android:fontFamily="@font/montserrat_regular"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_lap_lai"
@@ -255,6 +256,7 @@
         android:ems="10"
         android:fontFamily="@font/montserrat_regular"
         android:hint="Tiêu đề báo thức"
+        android:textColorHint="@color/dark_grey"
         android:inputType="textPersonName"
         android:paddingStart="20dp"
         android:paddingTop="0dp"
@@ -422,13 +424,24 @@
 
     <Button
         android:id="@+id/btn_schedule"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/ic_save"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/ic_left_flipper"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        android:onClick="back"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

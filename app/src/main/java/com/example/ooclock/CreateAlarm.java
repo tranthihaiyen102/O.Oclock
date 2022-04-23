@@ -242,4 +242,8 @@ public class CreateAlarm extends AppCompatActivity {
         Intent intent = new Intent(this, OtherOptionActivity.class);
         startActivity(intent);
     }
+
+    public void back(View view) {
+        finish();
+    }
 }
