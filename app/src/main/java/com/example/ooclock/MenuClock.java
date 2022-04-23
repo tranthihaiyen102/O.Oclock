@@ -92,7 +92,7 @@ public class MenuClock extends AppCompatActivity {
                 int m=calendar.getTime().getMinutes();
                 String dw=getDayofWeek(calendar);
                 int dm=calendar.get(Calendar.DAY_OF_MONTH);
-                int mo=calendar.get(Calendar.MONTH);
+                int mo=calendar.get(Calendar.MONTH)+1;
                 int y=calendar.get(Calendar.YEAR);
                 txtHours.setText(String.format("%02d:%02d",h,m));
                 txtDays.setText(String.format("%s, %02d/%02d/%04d",dw,dm,mo,y));
