@@ -1,21 +1,27 @@
 package com.example.ooclock;
 
+import static com.example.ooclock.application.App.CHANNEL_ID;
 import static com.example.ooclock.broadcastreceiver.NotiBroadcastReceiver.NOTITIME;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.PersistableBundle;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -38,13 +44,14 @@ public class MenuFocusTiming extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     Vibrator vibrator;
     TextView txt_countdown;
-    int millis;
+    long millis;
     String format_time;
     String countdown_time;
     int time;
     CountDownTimer count;
     WindowInsetsControllerCompat windowInsetsController;
     boolean touch;
+    boolean finish;
     int reset_touch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,41 +102,84 @@ public class MenuFocusTiming extends AppCompatActivity {
         txt_countdown = findViewById(R.id.txt_countdown);
         countdown_time = getIntent().getStringExtra("countdown_time");
         time = Integer.parseInt(countdown_time.split(":")[0]);
-        millis= time * 1000;
+        millis= time * 1000L;
         reset_touch=0;
-        count = new CountDownTimer(time * 1000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                reset_touch++;
-                if(reset_touch%2==1){
-                    windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
-                    touch=false;
+        finish=false;
+        if(savedInstanceState!=null){
+            millis=savedInstanceState.getLong("millis",0L);
+            count = new CountDownTimer(millis, 1000) {
+                public void onTick(long millisUntilFinished) {
+                    reset_touch++;
+                    if (reset_touch % 2 == 1) {
+                        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+                        touch = false;
+                    }
+                    Log.d("An_Test", millis + "");
+                    format_time = String.format("%02d:%02d",
+                            TimeUnit.MILLISECONDS.toMinutes(millis) -
+                                    TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), // The change is in this line
+                            TimeUnit.MILLISECONDS.toSeconds(millis) -
+                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+                    txt_countdown.setText(format_time);
+                    millis -= 1000;
                 }
-                Log.d("An_Test",millis+"");
-                format_time = String.format("%02d:%02d",
-                        TimeUnit.MILLISECONDS.toMinutes(millis) -
-                                TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), // The change is in this line
-                        TimeUnit.MILLISECONDS.toSeconds(millis) -
-                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
-                txt_countdown.setText(format_time);
-                millis-=1000;
-            }
-            public void onFinish() {
-                try {
-                    txt_countdown.setText(R.string.end_countdown);
-                    mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.finish_sound);
-                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                    mediaPlayer.setLooping(false);
-                    mediaPlayer.start();
-                    vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    long[] pattern = {0, 100, 1000};
-                    vibrator.vibrate(pattern, -1);
-                    Intent intent = new Intent(MenuFocusTiming.this,MenuFocusBreakTime.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception ex) {
+
+                public void onFinish() {
+                    try {
+                        txt_countdown.setText(R.string.end_countdown);
+                        mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.finish_sound);
+                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                        mediaPlayer.setLooping(false);
+                        mediaPlayer.start();
+                        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        long[] pattern = {0, 100, 1000};
+                        vibrator.vibrate(pattern, -1);
+                        finish = true;
+                        Intent intent = new Intent(MenuFocusTiming.this, MenuFocusBreakTime.class);
+                        startActivity(intent);
+                        finish();
+                    } catch (Exception ex) {
+                    }
                 }
-            }
-        }.start();
+            }.start();
+        }
+        else {
+            count = new CountDownTimer(time * 1000L, 1000) {
+                public void onTick(long millisUntilFinished) {
+                    reset_touch++;
+                    if (reset_touch % 2 == 1) {
+                        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+                        touch = false;
+                    }
+                    Log.d("An_Test", millis + "");
+                    format_time = String.format("%02d:%02d",
+                            TimeUnit.MILLISECONDS.toMinutes(millis) -
+                                    TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), // The change is in this line
+                            TimeUnit.MILLISECONDS.toSeconds(millis) -
+                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+                    txt_countdown.setText(format_time);
+                    millis -= 1000;
+                }
+
+                public void onFinish() {
+                    try {
+                        txt_countdown.setText(R.string.end_countdown);
+                        mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.finish_sound);
+                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                        mediaPlayer.setLooping(false);
+                        mediaPlayer.start();
+                        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        long[] pattern = {0, 100, 1000};
+                        vibrator.vibrate(pattern, -1);
+                        finish = true;
+                        Intent intent = new Intent(MenuFocusTiming.this, MenuFocusBreakTime.class);
+                        startActivity(intent);
+                        finish();
+                    } catch (Exception ex) {
+                    }
+                }
+            }.start();
+        }
     }
 
     @Override
@@ -158,5 +208,31 @@ public class MenuFocusTiming extends AppCompatActivity {
             touch=true;
         }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putLong("millis",millis);
+        count.cancel();
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        if(!finish){
+            Log.d("An_Test","LEAVE");
+            displayNotification();
+        }
+        super.onUserLeaveHint();
+    }
+
+    public void displayNotification() {
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.img_focus)
+                .setContentTitle("Bạn làm gà buồn lắm đấy :(")
+                .setContentText("Đang trong lúc tập trung mà bạn sử dụng điện thoại vậy!")
+                .build();
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(1, notification);
     }
 }

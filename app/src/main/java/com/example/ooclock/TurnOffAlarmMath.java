@@ -1,5 +1,7 @@
 package com.example.ooclock;
 
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MODE;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -42,6 +44,7 @@ public class TurnOffAlarmMath extends AppCompatActivity {
     int sobai;
     int conlai;
     int bai;
+    String mode;
     View.OnClickListener numberOnClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -76,15 +79,14 @@ public class TurnOffAlarmMath extends AppCompatActivity {
             }
         });
 
-        sobai=3;
+        if(!getIntent().getStringExtra(MODE).trim().equals("")&&getIntent().getStringExtra(MODE)!=null)
+            mode=getIntent().getStringExtra(MODE);
+        Log.d("An_Test","re "+mode);
+
+        sobai=Integer.parseInt(mode.split("-")[2]);
         conlai=sobai;
-//        result = toan_1();
-//        result = toan_2();
-//        result = toan_3();
-//        result = toan_4();
-        result = toan_5();
-//        result = toan_6();
-        conlai--;
+
+        chooseMath(mode.split("-")[1]);
         quiz_page.setText((sobai-conlai)+"/"+sobai);
         Log.d("An_Test",result+"");
         btn_OK.setOnClickListener(new View.OnClickListener() {
@@ -98,21 +100,48 @@ public class TurnOffAlarmMath extends AppCompatActivity {
                 if(kq==result) {
                     Toast.makeText(getBaseContext(), "Correct answer", Toast.LENGTH_LONG).show();
                     if(conlai>0){
-                        result = toan_5();
-                        conlai--;
+                        chooseMath(mode.split("-")[1]);
                         quiz_page.setText((sobai-conlai)+"/"+sobai);
                         txt_DauBang.setText("= ");
                     }
                     else {
-                        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
-                        getApplicationContext().stopService(intentService);
-                        finish();
+                        turnOff();
                     }
                 }
                 else
                     Toast.makeText(getBaseContext(),"Incorrect answer",Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void turnOff(){
+        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
+        getApplicationContext().stopService(intentService);
+        finish();
+    }
+
+    public void chooseMath(String toan){
+        switch (toan){
+            case "0":
+                result = toan_1();
+                break;
+            case "1":
+                result = toan_2();
+                break;
+            case "2":
+                result = toan_3();
+                break;
+            case "3":
+                result = toan_4();
+                break;
+            case "4":
+                result = toan_5();
+                break;
+            case "5":
+                result = toan_6();
+                break;
+        }
+        conlai--;
     }
 
     public int toan_1(){

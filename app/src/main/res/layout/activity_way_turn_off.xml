@@ -158,8 +158,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Rất dễ"
-            android:textColor="@color/black"
+
+            android:text="@string/math_0_txt"
+            android:textColor="@color/white"
+
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/container_level"
             app:layout_constraintStart_toStartOf="@+id/container_level"
@@ -171,8 +173,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="1+1=?"
-            android:textColor="@color/black"
+
+            android:text="@string/math_0_exa"
+            android:textColor="@color/white"
+
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/container_level"
             app:layout_constraintStart_toStartOf="@+id/container_level"
@@ -272,6 +276,7 @@
         android:layout_height="30dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/ic_save"
+        android:onClick="chooseOK"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar_option_1"
         app:layout_constraintEnd_toEndOf="@+id/toolbar_option_1"
         app:layout_constraintTop_toTopOf="@+id/toolbar_option_1" />
