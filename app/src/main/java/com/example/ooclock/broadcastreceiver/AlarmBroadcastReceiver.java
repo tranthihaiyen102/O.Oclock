@@ -23,6 +23,10 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
     public static final String RECURRING = "RECURRING";
     public static final String TITLE = "TITLE";
     public static final String MODE = "MODE";
+    public static final String URI = "URI";
+    public static final String VOLUME = "VOLUME";
+    public static final String VIBRATE = "VIBRATE";
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -86,6 +90,9 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
         Intent intentService = new Intent(context, AlarmService.class);
         intentService.putExtra(TITLE, intent.getStringExtra(TITLE));
         intentService.putExtra(MODE, intent.getStringExtra(MODE));
+        intentService.putExtra(URI, intent.getStringExtra(URI));
+        intentService.putExtra(VOLUME, intent.getFloatExtra(VOLUME,1.0f));
+        intentService.putExtra(VIBRATE, intent.getBooleanExtra(VIBRATE,false));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intentService);
         } else {
