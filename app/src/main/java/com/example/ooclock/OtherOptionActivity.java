@@ -11,26 +11,16 @@ import android.widget.RadioButton;
 public class OtherOptionActivity extends AppCompatActivity {
 
     CheckBox reminderCheckBox;
-    EditText text_reminder;
+    CheckBox snoozeCheckBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_option);
-
         reminderCheckBox = findViewById(R.id.reminder);
-        text_reminder = findViewById(R.id.text_reminder);
-        text_reminder.setVisibility(View.INVISIBLE);
+        snoozeCheckBox = findViewById(R.id.snooze);
     }
 
     public void back(View view) {
         finish();
-    }
-
-    public void reminderCheck(View view) {
-        if (reminderCheckBox.isChecked()){
-            text_reminder.setVisibility(View.VISIBLE);
-        }else {
-            text_reminder.setVisibility(View.INVISIBLE);
-        }
     }
 }
