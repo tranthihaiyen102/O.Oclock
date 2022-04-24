@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
+    android:background="@color/black"
     tools:context=".WayTurnOffActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_option_1"
@@ -29,14 +29,14 @@
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/ic_left_flipper"
+        android:onClick="back"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar_option_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_option_1"
-        android:onClick="back"/>
+        app:layout_constraintTop_toTopOf="@+id/toolbar_option_1" />
 
     <RelativeLayout
         android:id="@+id/layout_radio_button"
@@ -87,7 +87,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/custom_bg_2"
+        android:background="@drawable/custom_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -147,7 +147,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/btn_number"
+            android:background="@drawable/container_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_title_1" />
@@ -158,8 +158,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_semibold"
+
             android:text="@string/math_0_txt"
             android:textColor="@color/white"
+
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/container_level"
             app:layout_constraintStart_toStartOf="@+id/container_level"
@@ -171,8 +173,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/montserrat_semibold"
+
             android:text="@string/math_0_exa"
             android:textColor="@color/white"
+
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/container_level"
             app:layout_constraintStart_toStartOf="@+id/container_level"
@@ -201,7 +205,7 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/montserrat_regular"
             android:text="Dễ"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/container_level"
             app:layout_constraintStart_toStartOf="@+id/container_level" />
@@ -213,7 +217,7 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/montserrat_regular"
             android:text="Khó"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/container_level"
             app:layout_constraintEnd_toEndOf="@+id/container_level" />
@@ -238,7 +242,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/btn_number"
+            android:background="@drawable/container_bg"
             android:hint="1"
             android:textColorHint="@color/light_grey"
             android:paddingStart="20dp"

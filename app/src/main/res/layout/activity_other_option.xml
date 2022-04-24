@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
+    android:background="@color/black"
     tools:context=".OtherOptionActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_other_option"
@@ -29,13 +29,83 @@
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/ic_left_flipper"
+        android:onClick="back"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar_other_option"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_other_option"
-        android:onClick="back"/>
+        app:layout_constraintTop_toTopOf="@+id/toolbar_other_option" />
+
+
+    <CheckBox
+        android:id="@+id/snooze"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:buttonTint="@color/purple"
+        android:checked="true"
+        android:fontFamily="@font/montserrat_semibold"
+        android:padding="10dp"
+        android:rotationY="0"
+        android:text="Báo lại sau 5 phút"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_other_option" />
+
+    <CheckBox
+        android:id="@+id/reminder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:buttonTint="@color/purple"
+        android:fontFamily="@font/montserrat_semibold"
+        android:onClick="reminderCheck"
+        android:padding="10dp"
+        android:text="Lời nhắc"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snooze" />
+
+    <EditText
+        android:id="@+id/text_reminder"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/container_bg"
+        android:ems="10"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="Lời nhắc"
+        android:inputType="textPersonName"
+        android:paddingStart="20dp"
+        android:paddingTop="0dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="0dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/dark_grey"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reminder" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_save"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar_other_option"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar_other_option"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_other_option" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

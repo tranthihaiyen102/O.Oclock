@@ -30,8 +30,8 @@
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/ic_left_flipper"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar_UX"
@@ -40,39 +40,44 @@
         android:onClick="back"/>
 
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_UX">
 
 
         <RadioButton
             android:id="@+id/tiengviet"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:fontFamily="@font/montserrat_semibold"
+            android:buttonTint="@color/purple"
             android:checked="true"
+            android:fontFamily="@font/montserrat_semibold"
             android:onClick="langCheck"
+            android:padding="10dp"
             android:rotationY="0"
             android:text="@string/viet_lang"
-            android:textSize="16sp"
             android:textColor="@color/white"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_UX" />
 
         <RadioButton
             android:id="@+id/tienganh"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
+            android:buttonTint="@color/purple"
             android:fontFamily="@font/montserrat_semibold"
             android:onClick="langCheck"
+            android:padding="10dp"
             android:text="@string/eng_lang"
-            android:textSize="16sp"
             android:textColor="@color/white"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tiengviet" />
 

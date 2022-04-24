@@ -78,6 +78,7 @@
         android:textColor="@android:color/white"
         android:button="@drawable/checkbox2"
         android:textSize="13sp"
+        android:paddingStart="4dp"
         android:fontFamily="@font/montserrat_regular"
         app:layout_constraintBaseline_toBaselineOf="@+id/txt_lap_lai"
         app:layout_constraintEnd_toEndOf="parent"
@@ -390,12 +391,12 @@
             android:id="@+id/button"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_preview"
+            android:background="@drawable/btn"
             android:fontFamily="@font/montserrat_semibold"
             android:onClick="previewAlarm"
             android:text="Xem trước"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp"/>
 
     </LinearLayout>
@@ -434,14 +435,14 @@
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/ic_left_flipper"
+        android:onClick="back"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        android:onClick="back"/>
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

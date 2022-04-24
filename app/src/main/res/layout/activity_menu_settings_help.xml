@@ -29,8 +29,8 @@
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/ic_left_flipper"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar_UX"

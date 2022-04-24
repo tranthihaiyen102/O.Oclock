@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
+    android:background="@color/black"
     tools:context=".SoundOptionActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_sound_option"
@@ -29,14 +29,114 @@
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/ic_left_flipper"
+        android:onClick="back"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar_sound_option"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_sound_option"
-        android:onClick="back"/>
+        app:layout_constraintTop_toTopOf="@+id/toolbar_sound_option" />
 
+    <View
+        android:id="@+id/container_sound"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_sound_option" />
+
+    <ImageView
+        android:id="@+id/ic_audio_volume"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/audio_speaker_white"
+        app:layout_constraintStart_toStartOf="@+id/container_sound"
+        app:layout_constraintTop_toTopOf="@+id/container_sound" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:progressTint="@color/purple"
+        android:thumbTint="@color/purple"
+        app:layout_constraintEnd_toEndOf="@+id/container_sound"
+        app:layout_constraintStart_toEndOf="@+id/ic_audio_volume"
+        app:layout_constraintTop_toTopOf="@+id/container_sound" />
+
+    <CheckBox
+        android:id="@+id/checkBox_vibrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:button="@drawable/checkbox2"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Rung"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:paddingStart="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/container_sound"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <View
+        android:id="@+id/container_soundtrack"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_sound"
+        android:onClick="chooseSoundTrack"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Nhạc chuông"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/container_soundtrack"
+        app:layout_constraintStart_toStartOf="@+id/container_soundtrack"
+        app:layout_constraintTop_toTopOf="@+id/container_soundtrack" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Mặc định"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/container_soundtrack"
+        app:layout_constraintEnd_toEndOf="@+id/container_soundtrack"
+        app:layout_constraintTop_toTopOf="@+id/container_soundtrack" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_save"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar_sound_option"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar_sound_option"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_sound_option" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
