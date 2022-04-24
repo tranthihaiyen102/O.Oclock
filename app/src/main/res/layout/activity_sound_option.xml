@@ -135,6 +135,7 @@
         android:layout_height="30dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/ic_save"
+        android:onClick="chooseOK"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar_sound_option"
         app:layout_constraintEnd_toEndOf="@+id/toolbar_sound_option"
         app:layout_constraintTop_toTopOf="@+id/toolbar_sound_option" />

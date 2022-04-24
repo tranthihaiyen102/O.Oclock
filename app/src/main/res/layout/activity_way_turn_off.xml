@@ -160,7 +160,7 @@
             android:fontFamily="@font/montserrat_semibold"
 
             android:text="@string/math_0_txt"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
 
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/container_level"
@@ -175,7 +175,7 @@
             android:fontFamily="@font/montserrat_semibold"
 
             android:text="@string/math_0_exa"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
 
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/container_level"
@@ -253,7 +253,7 @@
             android:fontFamily="@font/montserrat_semibold"
             android:ems="3"
             android:inputType="number"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_title_2" />
 
