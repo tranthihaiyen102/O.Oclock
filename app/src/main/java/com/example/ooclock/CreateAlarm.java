@@ -1,5 +1,8 @@
 package com.example.ooclock;
 
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MODE;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -54,10 +57,13 @@ public class CreateAlarm extends AppCompatActivity {
     @BindView(R.id.sun) CheckBox sun;
     @BindView(R.id.recurring_options)
     LinearLayout recurringOptions;
+    String mode;
+
+    final int WAY = 1;
+    final int SOUND = 2;
+    final int OTHER = 3;
     private AlarmModel createAlarmViewModel;
-
 //    private Spinner spinner_turnOffAlarm;
-
     int hour, minute;
     Alarm alarm;
 
@@ -70,6 +76,7 @@ public class CreateAlarm extends AppCompatActivity {
 
         int alarmId = getIntent().getIntExtra("alarmId",-1);
         if(alarmId!=-1) alarm = createAlarmViewModel.getAlarmbyId(alarmId);
+        mode="0";
 
         CompoundButton.OnCheckedChangeListener weekdayListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -124,6 +131,7 @@ public class CreateAlarm extends AppCompatActivity {
             fri.setChecked(alarm.isFriday());
             sat.setChecked(alarm.isSaturday());
             sun.setChecked(alarm.isSunday());
+            mode=alarm.getMode();
         }
         else textTimePicker.setText(TimePickerUtil.tof12H(currentTime.getHours(),currentTime.getMinutes()));
         hour=TimePickerUtil.getTimePickerHour(textTimePicker);
@@ -188,7 +196,8 @@ public class CreateAlarm extends AppCompatActivity {
                 thu.isChecked(),
                 fri.isChecked(),
                 sat.isChecked(),
-                sun.isChecked()
+                sun.isChecked(),
+                mode
         );
 
         createAlarmViewModel.insert(alarm);
@@ -212,7 +221,8 @@ public class CreateAlarm extends AppCompatActivity {
                 thu.isChecked(),
                 fri.isChecked(),
                 sat.isChecked(),
-                sun.isChecked()
+                sun.isChecked(),
+                mode
         );
 
         createAlarmViewModel.update(alarm);
@@ -221,6 +231,7 @@ public class CreateAlarm extends AppCompatActivity {
 
     public void previewAlarm(View view) {
         Intent intent = new Intent(this, TurnOffAlarm.class);
+        intent.putExtra(MODE,mode);
         startActivity(intent);
     }
 
@@ -230,17 +241,28 @@ public class CreateAlarm extends AppCompatActivity {
 
     public void chooseWay(View view) {
         Intent intent = new Intent(this, WayTurnOffActivity.class);
-        startActivity(intent);
+        intent.putExtra(MODE,mode);
+        startActivityForResult(intent,WAY);
     }
 
     public void soundOption(View view) {
         Intent intent = new Intent(this, SoundOptionActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,SOUND);
     }
 
     public void chooseOtherOption(View view) {
         Intent intent = new Intent(this, OtherOptionActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,OTHER);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == WAY) {
+            if (resultCode == RESULT_OK) {
+                mode = data.getStringExtra(MODE);
+            }
+        }
     }
 
     public void back(View view) {

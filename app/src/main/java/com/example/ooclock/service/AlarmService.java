@@ -1,6 +1,7 @@
 package com.example.ooclock.service;
 
 import static com.example.ooclock.application.App.CHANNEL_ID;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MODE;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.TITLE;
 
 import android.app.Notification;
@@ -38,6 +39,7 @@ public class AlarmService extends Service {
 
         String alarmTitle = String.format("%s Alarm", intent.getStringExtra(TITLE));
         notificationIntent.putExtra(TITLE,intent.getStringExtra(TITLE));
+        notificationIntent.putExtra(MODE,intent.getStringExtra(MODE));
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(alarmTitle)

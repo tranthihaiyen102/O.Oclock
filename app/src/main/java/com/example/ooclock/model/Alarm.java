@@ -1,6 +1,7 @@
 package com.example.ooclock.model;
 
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.FRIDAY;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MODE;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MONDAY;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.RECURRING;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.SATURDAY;
@@ -41,6 +42,7 @@ public class Alarm implements Comparable<Alarm> {
     private boolean started, recurring;
     private boolean monday, tuesday, wednesday, thursday, friday, saturday, sunday;
     private String title;
+    private String mode;
 
     private long created;
 
@@ -50,7 +52,7 @@ public class Alarm implements Comparable<Alarm> {
         this.minute = minute;
     }
 
-    public Alarm(int alarmId, int hour, int minute, String title, long created, boolean started, boolean recurring, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday, boolean saturday, boolean sunday) {
+    public Alarm(int alarmId, int hour, int minute, String title, long created, boolean started, boolean recurring, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday, boolean saturday, boolean sunday, String mode) {
         this.alarmId = alarmId;
         this.hour = hour;
         this.minute = minute;
@@ -69,6 +71,7 @@ public class Alarm implements Comparable<Alarm> {
         this.title = title;
 
         this.created = created;
+        this.mode = mode;
     }
 
     public int getHour() {
@@ -124,6 +127,10 @@ public class Alarm implements Comparable<Alarm> {
     }
 
 
+    public String getMode() {
+        return mode;
+    }
+
     public void schedule(Context context) {
         Log.d("An_Test",context.toString());
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -138,6 +145,7 @@ public class Alarm implements Comparable<Alarm> {
         intent.putExtra(FRIDAY, friday);
         intent.putExtra(SATURDAY, saturday);
         intent.putExtra(SUNDAY, sunday);
+        intent.putExtra(MODE, mode);
 
         intent.putExtra(TITLE, title+" "+hour+":"+minute);
         PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, 0);

@@ -1,5 +1,6 @@
 package com.example.ooclock;
 
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MODE;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.TITLE;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,11 +35,19 @@ public class TurnOffAlarm extends AppCompatActivity {
     }
 
     public void turnOffAlarm(View view) {
-//        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
-//        getApplicationContext().stopService(intentService);
-//        finish();
-        Intent intent = new Intent(this, TurnOffAlarmMath.class);
-        startActivity(intent);
+        if(getIntent().getStringExtra(MODE)!=null) {
+            if (getIntent().getStringExtra(MODE).startsWith("1")) {
+                Intent intent = new Intent(this, TurnOffAlarmMath.class);
+                intent.putExtra(MODE, getIntent().getStringExtra(MODE));
+                startActivity(intent);
+                finish();
+            } else turnOff();
+        }
+        else turnOff();
+    }
+    public void turnOff(){
+        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
+        getApplicationContext().stopService(intentService);
         finish();
     }
 }

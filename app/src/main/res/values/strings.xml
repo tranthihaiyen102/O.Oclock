@@ -68,6 +68,18 @@
     <string name="end_countdown">00:00</string>
     <string name="stop">Dừng</string>
     <string name="record">Bấm</string>
+    <string name="math_0_txt">Rất dễ</string>
+    <string name="math_0_exa">1+1=?</string>
+    <string name="math_1_txt">Dễ</string>
+    <string name="math_1_exa">12+30=?</string>
+    <string name="math_2_txt">Vừa</string>
+    <string name="math_2_exa">22+18+37=?</string>
+    <string name="math_3_txt">Khó</string>
+    <string name="math_3_exa">(12x8)+46=?</string>
+    <string name="math_4_txt">Rất khó</string>
+    <string name="math_4_exa">39x62=?</string>
+    <string name="math_5_txt">Cực kì khó nhằn</string>
+    <string name="math_5_exa">23x47x15=?</string>
     <string-array name="time_array">
         <item>25 phút</item>
         <item>30 phút</item>
