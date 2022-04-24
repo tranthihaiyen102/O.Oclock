@@ -5,6 +5,7 @@ import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MODE;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MONDAY;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.RECURRING;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.SATURDAY;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.SNOOZE;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.SUNDAY;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.THURSDAY;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.TITLE;
@@ -50,6 +51,8 @@ public class Alarm implements Comparable<Alarm> {
     private String uri;
     private boolean vibrate;
     private float volume;
+    private boolean reminder;
+    private boolean snooze;
 
     private long created;
 
@@ -59,7 +62,7 @@ public class Alarm implements Comparable<Alarm> {
         this.minute = minute;
     }
 
-    public Alarm(int alarmId, int hour, int minute, String title, long created, boolean started, boolean recurring, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday, boolean saturday, boolean sunday, String mode, String uri, boolean vibrate, float volume) {
+    public Alarm(int alarmId, int hour, int minute, String title, long created, boolean started, boolean recurring, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday, boolean saturday, boolean sunday, String mode, String uri, boolean vibrate, float volume, boolean reminder, boolean snooze) {
         this.alarmId = alarmId;
         this.hour = hour;
         this.minute = minute;
@@ -78,10 +81,23 @@ public class Alarm implements Comparable<Alarm> {
         this.title = title;
 
         this.created = created;
+
         this.mode = mode;
+
         this.uri = uri;
         this.volume = volume;
         this.vibrate = vibrate;
+
+        this.reminder = reminder;
+        this.snooze = snooze;
+    }
+
+    public boolean isReminder() {
+        return reminder;
+    }
+
+    public boolean isSnooze() {
+        return snooze;
     }
 
     public int getHour() {
@@ -171,8 +187,9 @@ public class Alarm implements Comparable<Alarm> {
         intent.putExtra(URI, uri);
         intent.putExtra(VOLUME, volume);
         intent.putExtra(VIBRATE, vibrate);
-
+        intent.putExtra(SNOOZE, snooze);
         intent.putExtra(TITLE, title+" "+hour+":"+minute);
+
         PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, 0);
 
         Calendar calendar = Calendar.getInstance();
@@ -224,33 +241,35 @@ public class Alarm implements Comparable<Alarm> {
             );
         }
 
-        PendingIntent alarmNotiPendingIntent = PendingIntent.getBroadcast(context, alarmId,new Intent(context, NotiBroadcastReceiver.class).putExtra(TITLE, title+" "+hour+":"+minute), 0);
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
-        calendar.set(Calendar.MINUTE, minute);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        Log.d("An_test","Exact: "+calendar.getTime().getHours()+":"+calendar.getTime().getMinutes());
-        calendar.add(Calendar.MINUTE,-NOTITIME);
-        Log.d("An_test","Noti: "+calendar.getTime().getHours()+":"+calendar.getTime().getMinutes());
-        if (calendar.getTimeInMillis() <= (System.currentTimeMillis()-NOTITIME*60*1000)) {
-            calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) + 1);
-        }
-        if (!recurring) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                alarmManager.setExact(
-                        AlarmManager.RTC_WAKEUP,
-                        calendar.getTimeInMillis(),
-                        alarmNotiPendingIntent
-                );
+        if(reminder) {
+            PendingIntent alarmNotiPendingIntent = PendingIntent.getBroadcast(context, alarmId, new Intent(context, NotiBroadcastReceiver.class).putExtra(TITLE, title + " " + hour + ":" + minute), 0);
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, hour);
+            calendar.set(Calendar.MINUTE, minute);
+            calendar.set(Calendar.SECOND, 0);
+            calendar.set(Calendar.MILLISECOND, 0);
+            Log.d("An_test", "Exact: " + calendar.getTime().getHours() + ":" + calendar.getTime().getMinutes());
+            calendar.add(Calendar.MINUTE, -NOTITIME);
+            Log.d("An_test", "Noti: " + calendar.getTime().getHours() + ":" + calendar.getTime().getMinutes());
+            if (calendar.getTimeInMillis() <= (System.currentTimeMillis() - NOTITIME * 60 * 1000)) {
+                calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) + 1);
             }
-        } else if (alarmIsToday(intent)){
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                alarmManager.setExact(
-                        AlarmManager.RTC_WAKEUP,
-                        calendar.getTimeInMillis(),
-                        alarmNotiPendingIntent
-                );
+            if (!recurring) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    alarmManager.setExact(
+                            AlarmManager.RTC_WAKEUP,
+                            calendar.getTimeInMillis(),
+                            alarmNotiPendingIntent
+                    );
+                }
+            } else if (alarmIsToday(intent)) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    alarmManager.setExact(
+                            AlarmManager.RTC_WAKEUP,
+                            calendar.getTimeInMillis(),
+                            alarmNotiPendingIntent
+                    );
+                }
             }
         }
 
