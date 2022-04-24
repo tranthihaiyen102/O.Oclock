@@ -105,15 +105,19 @@ public class TurnOffAlarmMath extends AppCompatActivity {
                         txt_DauBang.setText("= ");
                     }
                     else {
-                        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
-                        getApplicationContext().stopService(intentService);
-                        finish();
+                        turnOff();
                     }
                 }
                 else
                     Toast.makeText(getBaseContext(),"Incorrect answer",Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void turnOff(){
+        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
+        getApplicationContext().stopService(intentService);
+        finish();
     }
 
     public void chooseMath(String toan){
