@@ -127,7 +127,7 @@ public class MenuFocusTiming extends AppCompatActivity {
                 public void onFinish() {
                     try {
                         txt_countdown.setText(R.string.end_countdown);
-                        mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.finish_sound);
+                        mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.oosoundtrack);
                         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                         mediaPlayer.setLooping(false);
                         mediaPlayer.start();
@@ -164,7 +164,7 @@ public class MenuFocusTiming extends AppCompatActivity {
                 public void onFinish() {
                     try {
                         txt_countdown.setText(R.string.end_countdown);
-                        mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.finish_sound);
+                        mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.oosoundtrack);
                         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                         mediaPlayer.setLooping(false);
                         mediaPlayer.start();
