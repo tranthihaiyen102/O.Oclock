@@ -169,12 +169,17 @@ public class Alarm implements Comparable<Alarm> {
         return volume;
     }
 
+    public void setStarted(boolean started) {
+        this.started = started;
+    }
+
     public void schedule(Context context) {
         Log.d("An_Test",context.toString());
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         Intent intent = new Intent(context, AlarmBroadcastReceiver.class);
         recurring = monday|tuesday|wednesday|thursday|friday|saturday|sunday;
+        intent.putExtra("ID", alarmId);
         intent.putExtra(RECURRING, recurring);
         intent.putExtra(MONDAY, monday);
         intent.putExtra(TUESDAY, tuesday);

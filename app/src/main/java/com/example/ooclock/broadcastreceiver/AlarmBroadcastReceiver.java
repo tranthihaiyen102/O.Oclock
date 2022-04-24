@@ -1,5 +1,6 @@
 package com.example.ooclock.broadcastreceiver;
 
+import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -7,12 +8,17 @@ import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.ooclock.data.AlarmModel;
+import com.example.ooclock.model.Alarm;
 import com.example.ooclock.service.AlarmService;
 import com.example.ooclock.service.RescheduleAlarmsService;
 
 import java.util.Calendar;
 
 public class AlarmBroadcastReceiver extends BroadcastReceiver {
+    AlarmModel alarmModel;
     public static final String MONDAY = "MONDAY";
     public static final String TUESDAY = "TUESDAY";
     public static final String WEDNESDAY = "WEDNESDAY";
@@ -33,6 +39,7 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        alarmModel = new AlarmModel((Application) context.getApplicationContext());
         Log.d("An_Test","AlarmBroadcastReceiver: "+intent.toString());
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             String toastText = String.format("Alarm Reboot");
@@ -44,6 +51,9 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
             Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
             if (!intent.getBooleanExtra(RECURRING, false)) {
                 startAlarmService(context, intent);
+                Alarm alarm = alarmModel.getAlarmbyId(intent.getIntExtra("ID",0));
+                alarm.setStarted(false);
+                alarmModel.update(alarm);
             }
             else if (alarmIsToday(intent)) {
                 startAlarmService(context, intent);
