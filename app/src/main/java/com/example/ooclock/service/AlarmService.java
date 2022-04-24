@@ -2,6 +2,7 @@ package com.example.ooclock.service;
 
 import static com.example.ooclock.application.App.CHANNEL_ID;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MODE;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.SNOOZE;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.TITLE;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.URI;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.VIBRATE;
@@ -45,8 +46,14 @@ public class AlarmService extends Service {
         Intent notificationIntent = new Intent(this, TurnOffAlarm.class);
 
         String alarmTitle = String.format("%s Alarm", intent.getStringExtra(TITLE));
-        notificationIntent.putExtra(TITLE, intent.getStringExtra(TITLE));
+
         notificationIntent.putExtra(MODE, intent.getStringExtra(MODE));
+        notificationIntent.putExtra(URI, intent.getStringExtra(URI));
+        notificationIntent.putExtra(VOLUME, intent.getFloatExtra(VOLUME,1.0f));
+        notificationIntent.putExtra(VIBRATE, intent.getBooleanExtra(VIBRATE,false));
+        notificationIntent.putExtra(SNOOZE, intent.getBooleanExtra(SNOOZE,false));
+        notificationIntent.putExtra(TITLE, intent.getStringExtra(TITLE));
+
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(alarmTitle)

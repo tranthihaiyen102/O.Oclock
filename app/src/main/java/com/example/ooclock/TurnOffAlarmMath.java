@@ -1,6 +1,12 @@
 package com.example.ooclock;
 
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MODE;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.SNOOZE;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.SNOOZE_TIME;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.TITLE;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.URI;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.VIBRATE;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.VOLUME;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,8 +22,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ooclock.model.Alarm;
 import com.example.ooclock.service.AlarmService;
 
+import java.util.Calendar;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import butterknife.BindView;
@@ -95,7 +104,7 @@ public class TurnOffAlarmMath extends AppCompatActivity {
                 int kq;
                 String kq_str = txt_DauBang.getText().toString().substring(2);
                 Log.d("An_Test",kq_str);
-                if(kq_str.length()>2) kq = Integer.parseInt(kq_str);
+                if(kq_str.length()>0) kq = Integer.parseInt(kq_str);
                 else kq=0;
                 if(kq==result) {
                     Toast.makeText(getBaseContext(), "Correct answer", Toast.LENGTH_LONG).show();
@@ -112,12 +121,6 @@ public class TurnOffAlarmMath extends AppCompatActivity {
                     Toast.makeText(getBaseContext(),"Incorrect answer",Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    public void turnOff(){
-        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
-        getApplicationContext().stopService(intentService);
-        finish();
     }
 
     public void chooseMath(String toan){
@@ -204,5 +207,48 @@ public class TurnOffAlarmMath extends AppCompatActivity {
         so3= min + (int)(Math.random() * ((max - min) + 1));
         txtPhepToan.setText(so1+"x"+so2+"x"+so3);
         return (so1*so2*so3);
+    }
+
+    public void turnOff(){
+        if(getIntent().getBooleanExtra(SNOOZE,false)){
+            startSnooze();
+        }
+        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
+        getApplicationContext().stopService(intentService);
+        finish();
+    }
+    public void startSnooze(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.add(Calendar.MINUTE, SNOOZE_TIME);
+
+        Alarm alarm = new Alarm(
+                new Random().nextInt(Integer.MAX_VALUE),
+                calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE),
+                getIntent().getStringExtra(TITLE),
+                System.currentTimeMillis(),
+                true,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                getIntent().getStringExtra(MODE),
+                getIntent().getStringExtra(URI),
+                getIntent().getBooleanExtra(VIBRATE,false),
+                getIntent().getFloatExtra(VOLUME,1.0f),
+                false,
+                false
+        );
+
+        alarm.schedule(getApplicationContext());
+
+        Intent intentService = new Intent(getApplicationContext(), AlarmService.class);
+        getApplicationContext().stopService(intentService);
+        finish();
     }
 }

@@ -26,6 +26,9 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
     public static final String URI = "URI";
     public static final String VOLUME = "VOLUME";
     public static final String VIBRATE = "VIBRATE";
+    public static final String REMINDER = "REMINDER";
+    public static final String SNOOZE = "SNOOZE";
+    public static final int SNOOZE_TIME = 5;
 
 
     @Override
@@ -88,11 +91,12 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
 
     private void startAlarmService(Context context, Intent intent) {
         Intent intentService = new Intent(context, AlarmService.class);
-        intentService.putExtra(TITLE, intent.getStringExtra(TITLE));
         intentService.putExtra(MODE, intent.getStringExtra(MODE));
         intentService.putExtra(URI, intent.getStringExtra(URI));
         intentService.putExtra(VOLUME, intent.getFloatExtra(VOLUME,1.0f));
         intentService.putExtra(VIBRATE, intent.getBooleanExtra(VIBRATE,false));
+        intentService.putExtra(SNOOZE, intent.getBooleanExtra(SNOOZE,false));
+        intentService.putExtra(TITLE, intent.getStringExtra(TITLE));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intentService);
         } else {
