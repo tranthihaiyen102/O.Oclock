@@ -12,6 +12,8 @@ import com.example.ooclock.R;
 import com.example.ooclock.model.Alarm;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<com.example.ooclock.alarmlist.AlarmViewHolder> {
@@ -49,6 +51,34 @@ public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<com.example.o
     public void onViewRecycled(@NonNull com.example.ooclock.alarmlist.AlarmViewHolder holder) {
         super.onViewRecycled(holder);
         holder.alarmStarted.setOnCheckedChangeListener(null);
+    }
+
+    public String getWillRing(){
+        String text="";
+        Date currentTime = Calendar.getInstance().getTime();
+        Alarm currentalarm = new Alarm(currentTime.getHours(), currentTime.getMinutes());
+        boolean willRing24h = false;
+        for (Alarm alarm : alarms) {
+            if (alarm.compareTo(currentalarm) >= 0 && alarm.willRingToday()) {
+                Alarm minusalarm = alarm.minus(currentalarm);
+                text="Chuông báo thức sau \n"+minusalarm.getHour()+" giờ "+minusalarm.getMinute()+" phút";
+                willRing24h = true;
+                break;
+            }
+        }
+        if (!willRing24h)
+            for (Alarm alarm : alarms) {
+                if (alarm.compareTo(currentalarm) < 0 && alarm.willRingTomorow()) {
+                    Alarm minusalarm = alarm.minus(currentalarm);
+                    text="Chuông báo thức sau \n"+minusalarm.getHour()+" giờ "+minusalarm.getMinute()+" phút";
+                    willRing24h = true;
+                    break;
+                }
+            }
+        if (!willRing24h) {
+            text="Không có báo thức nào được bật";
+        }
+        return text;
     }
 }
 

@@ -54,6 +54,7 @@
     <string name="t7">T7</string>
     <string name="cn">CN</string>
     <string name="lbl_addAlarm">Thêm báo thức</string>
+    <string name="lbl_editAlarm">Sửa báo thức</string>
     <string name="gioThucDay">Giờ thức dậy</string>
     <string name="txt_GioThucDay">06:00</string>
     <string name="noi_dung">Dậy tập thể dục và ăn sáng</string>
@@ -81,6 +82,7 @@
     <string name="math_5_txt">Cực kì khó nhằn</string>
     <string name="math_5_exa">23x47x15=?</string>
     <string name="helpQuestion1">Vì sao báo thức của tôi không kêu?</string>
+
     <string name="helpQuestioncontent1">Lý do khiến điện thoại của bạn không kêu dù đã đến giờ báo thức có thể là:</string>
     <string name="helpReason11">1.\tBạn đã đặt báo thức nhưng lại quên không đặt chuông cho báo thức này. Hoặc bạn vô tình để âm lượng của báo thức ở mức quá nhỏ, nên không nghe được tiếng chuông báo.</string>
     <string name="helpReason12">2.\tBạn đặt báo thức sai giờ do nhầm lẫn về mặt thời gian. Nếu để đồng hồ hiển thị dưới dạng AM và PM, tình trạng này có khả năng cao xuất hiện.</string>
@@ -110,6 +112,7 @@
     <string name="member5">Phạm Bảo Ngọc</string>
     <string name="speacialThanks">Xin chân thành cảm ơn</string>
     <string name="teacher">TS. Phạm Xuân Lâm đã đồng hành, hỗ trợ nhóm trong suốt quá trình thực hiện.</string>
+
     <string-array name="time_array">
         <item>25 phút</item>
         <item>30 phút</item>
