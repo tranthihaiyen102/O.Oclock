@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
     private RecyclerView alarmsRecyclerView;
     TextView txtMessage;
 
+    Handler handler;
+    Runnable clockRunable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,29 +55,7 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
                 if (alarms != null) {
                     Collections.sort(alarms);
                     alarmRecyclerViewAdapter.setAlarms(alarms);
-                    Date currentTime = Calendar.getInstance().getTime();
-                    Alarm currentalarm = new Alarm(currentTime.getHours(), currentTime.getMinutes());
-                    boolean willRing24h = false;
-                    for (Alarm alarm : alarms) {
-                        if (alarm.compareTo(currentalarm) >= 0 && alarm.willRingToday()) {
-                            Alarm minusalarm = alarm.minus(currentalarm);
-                            txtMessage.setText("Chuông báo thức sau \n"+minusalarm.getHour()+" giờ "+minusalarm.getMinute()+" phút");
-                            willRing24h = true;
-                            break;
-                        }
-                    }
-                    if (!willRing24h)
-                        for (Alarm alarm : alarms) {
-                            if (alarm.compareTo(currentalarm) < 0 && alarm.willRingTomorow()) {
-                                Alarm minusalarm = alarm.minus(currentalarm);
-                                txtMessage.setText("Chuông báo thức sau \n"+minusalarm.getHour()+" giờ "+minusalarm.getMinute()+" phút");
-                                willRing24h = true;
-                                break;
-                            }
-                        }
-                    if (!willRing24h) {
-                        txtMessage.setText("Không có báo thức nào được bật");
-                    }
+                    txtMessage.setText(alarmRecyclerViewAdapter.getWillRing());
                 }
             }
         });
@@ -137,8 +119,30 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
                 return false;
             }
         });
+        reTime();
+    }
 
+    private void reTime()
+    {
+        // Get the text view.
+        // Creates a new Handler
+        handler
+                = new Handler();
+        // Call the post() method,
+        // passing in a new Runnable.
+        // The post() method processes
+        // code without a delay,
+        // so the code in the Runnable
+        // will run almost immediately.
+        handler.post(clockRunable = new Runnable() {
+            @Override
 
+            public void run()
+            {
+                txtMessage.setText(alarmRecyclerViewAdapter.getWillRing());
+                handler.postDelayed(clockRunable, 1000);
+            }
+        });
     }
 
     public void addNewAlarm(View view) {
@@ -155,6 +159,12 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
             alarm.schedule(this);
             alarmsListViewModel.update(alarm);
         }
+    }
+
+    @Override
+    protected void onStop() {
+        handler.removeCallbacks(clockRunable);
+        super.onStop();
     }
 
     public void onHoldDelete(Alarm alarm) {

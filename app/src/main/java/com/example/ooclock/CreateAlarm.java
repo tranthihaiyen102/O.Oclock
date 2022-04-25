@@ -1,6 +1,12 @@
 package com.example.ooclock;
 
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.MODE;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.REMINDER;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.SNOOZE;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.TITLE;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.URI;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.VIBRATE;
+import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.VOLUME;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +16,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +33,7 @@ import android.widget.Toolbar;
 
 import com.example.ooclock.data.AlarmModel;
 import com.example.ooclock.model.Alarm;
+import com.example.ooclock.service.AlarmService;
 import com.example.ooclock.utils.TimePickerUtil;
 
 import java.sql.DatabaseMetaData;
@@ -58,6 +66,11 @@ public class CreateAlarm extends AppCompatActivity {
     @BindView(R.id.recurring_options)
     LinearLayout recurringOptions;
     String mode;
+    Uri uri;
+    boolean vibrate;
+    float volume;
+    boolean snooze;
+    boolean reminder;
 
     final int WAY = 1;
     final int SOUND = 2;
@@ -77,6 +90,11 @@ public class CreateAlarm extends AppCompatActivity {
         int alarmId = getIntent().getIntExtra("alarmId",-1);
         if(alarmId!=-1) alarm = createAlarmViewModel.getAlarmbyId(alarmId);
         mode="0";
+        uri=Uri.parse("");
+        volume=1.0f;
+        vibrate=false;
+        reminder=false;
+        snooze=false;
 
         CompoundButton.OnCheckedChangeListener weekdayListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -132,6 +150,11 @@ public class CreateAlarm extends AppCompatActivity {
             sat.setChecked(alarm.isSaturday());
             sun.setChecked(alarm.isSunday());
             mode=alarm.getMode();
+            uri=Uri.parse(alarm.getUri());
+            volume=alarm.getVolume();
+            vibrate=alarm.isVibrate();
+            reminder = alarm.isReminder();
+            snooze = alarm.isSnooze();
         }
         else textTimePicker.setText(TimePickerUtil.tof12H(currentTime.getHours(),currentTime.getMinutes()));
         hour=TimePickerUtil.getTimePickerHour(textTimePicker);
@@ -197,7 +220,12 @@ public class CreateAlarm extends AppCompatActivity {
                 fri.isChecked(),
                 sat.isChecked(),
                 sun.isChecked(),
-                mode
+                mode,
+                uri.toString(),
+                vibrate,
+                volume,
+                reminder,
+                snooze
         );
 
         createAlarmViewModel.insert(alarm);
@@ -222,7 +250,12 @@ public class CreateAlarm extends AppCompatActivity {
                 fri.isChecked(),
                 sat.isChecked(),
                 sun.isChecked(),
-                mode
+                mode,
+                uri.toString(),
+                vibrate,
+                volume,
+                reminder,
+                snooze
         );
 
         createAlarmViewModel.update(alarm);
@@ -232,6 +265,12 @@ public class CreateAlarm extends AppCompatActivity {
     public void previewAlarm(View view) {
         Intent intent = new Intent(this, TurnOffAlarm.class);
         intent.putExtra(MODE,mode);
+        Intent serviceIntent = new Intent(this, AlarmService.class);
+        serviceIntent.putExtra(URI,uri.toString());
+        serviceIntent.putExtra(VOLUME,volume);
+        serviceIntent.putExtra(VIBRATE,vibrate);
+        serviceIntent.putExtra(TITLE,title.getText());
+        startService(serviceIntent);
         startActivity(intent);
     }
 
@@ -247,11 +286,16 @@ public class CreateAlarm extends AppCompatActivity {
 
     public void soundOption(View view) {
         Intent intent = new Intent(this, SoundOptionActivity.class);
+        intent.putExtra(URI,uri.toString());
+        intent.putExtra(VOLUME,volume);
+        intent.putExtra(VIBRATE,vibrate);
         startActivityForResult(intent,SOUND);
     }
 
     public void chooseOtherOption(View view) {
         Intent intent = new Intent(this, OtherOptionActivity.class);
+        intent.putExtra(REMINDER,reminder);
+        intent.putExtra(SNOOZE,snooze);
         startActivityForResult(intent,OTHER);
     }
 
@@ -261,6 +305,19 @@ public class CreateAlarm extends AppCompatActivity {
         if (requestCode == WAY) {
             if (resultCode == RESULT_OK) {
                 mode = data.getStringExtra(MODE);
+            }
+        }
+        if (requestCode == SOUND) {
+            if (resultCode == RESULT_OK) {
+                uri = Uri.parse(data.getStringExtra(URI));
+                volume = data.getFloatExtra(VOLUME,1.0f);
+                vibrate = data.getBooleanExtra(VIBRATE,false);
+            }
+        }
+        if (requestCode == OTHER) {
+            if (resultCode == RESULT_OK) {
+                reminder = data.getBooleanExtra(REMINDER,false);
+                snooze = data.getBooleanExtra(SNOOZE,false);
             }
         }
     }
