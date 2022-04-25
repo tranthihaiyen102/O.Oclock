@@ -15,6 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OOclock">
         <activity
+            android:name=".HelpQuestion3"
+            android:exported="false" />
+        <activity
+            android:name=".helpQuestion2"
+            android:exported="false" />
+        <activity
+            android:name=".HelpQuestion1"
+            android:exported="false" />
+        <activity
             android:name=".OtherOptionActivity"
             android:exported="false" />
         <activity

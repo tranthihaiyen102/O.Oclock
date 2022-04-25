@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    tools:context=".MenuSettingsHelp">
+    tools:context=".HelpQuestion3">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_UX"
         android:layout_width="match_parent"
@@ -25,8 +26,8 @@
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="20sp"
             android:textStyle="bold" />
-    </androidx.appcompat.widget.Toolbar>
 
+    </androidx.appcompat.widget.Toolbar>
     <Button
         android:id="@+id/btn_back"
         android:layout_width="24dp"
@@ -38,66 +39,51 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar_UX"
         android:onClick="back"/>
 
-
     <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView17"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="Các câu hỏi thường gặp"
+        android:text="@string/helpQuestion3"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_UX" />
 
     <TextView
-        android:id="@+id/question1"
+        android:id="@+id/textView18"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat_regular"
-        android:onClick="help1"
-        android:text="@string/helpQuestion1"
+        android:text="@string/helpQuestionContent31"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
-        android:id="@+id/question2"
+        android:id="@+id/textView19"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat_regular"
-        android:onClick="help1"
-        android:text="@string/helpQuestion2"
+        android:text="@string/helpQuestionContent32"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question1" />
-
-    <TextView
-        android:id="@+id/question3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:onClick="help1"
-        android:text="@string/helpQuestion3"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

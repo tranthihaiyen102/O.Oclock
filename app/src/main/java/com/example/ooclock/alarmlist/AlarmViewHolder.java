@@ -75,7 +75,7 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
             @Override
             public boolean onLongClick(View view) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
-                alertDialogBuilder.setTitle("You want to delete "+alarm.getAlarmId()+"?");
+                alertDialogBuilder.setTitle("You want to delete?");
                 alertDialogBuilder.setPositiveButton("OK",(dialog,which)->{
                     alarm.cancelAlarm(view.getContext());
                     listener.onHoldDelete(alarm);

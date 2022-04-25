@@ -8,6 +8,12 @@
         <entry key="..\:/A_App/O.Oclock/app/src/main/res/layout/activity_menu_settings_info.xml" value="0.264" />
         <entry key="..\:/A_App/O.Oclock/app/src/main/res/layout/activity_other_option.xml" value="0.10989583333333333" />
         <entry key="..\:/A_App/O.Oclock/app/src/main/res/layout/activity_sound_option.xml" value="0.10989583333333333" />
+        <entry key="..\:/A_App/O.Oclock2/app/src/main/res/layout/activity_help_question1.xml" value="0.4" />
+        <entry key="..\:/A_App/O.Oclock2/app/src/main/res/layout/activity_help_question2.xml" value="0.264" />
+        <entry key="..\:/A_App/O.Oclock2/app/src/main/res/layout/activity_help_question3.xml" value="0.4" />
+        <entry key="..\:/A_App/O.Oclock2/app/src/main/res/layout/activity_menu_focus_timing.xml" value="0.10989583333333333" />
+        <entry key="..\:/A_App/O.Oclock2/app/src/main/res/layout/activity_menu_settings_help.xml" value="0.2" />
+        <entry key="..\:/A_App/O.Oclock2/app/src/main/res/layout/activity_menu_settings_info.xml" value="0.25" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/btn.xml" value="0.1495" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/btn_number.xml" value="0.1495" />
         <entry key="..\:/Users/84342/AndroidStudioProjects/O.Oclock/app/src/main/res/drawable/btn_t2.xml" value="0.2405" />
@@ -152,7 +158,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/O.Oclock_tuanan/app/src/main/res/layout/activity_sound_option.xml" value="0.14266304347826086" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/O.Oclock_tuanan/app/src/main/res/layout/activity_turn_off_alarm.xml" value="0.1" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/O.Oclock_tuanan/app/src/main/res/layout/activity_turn_off_alarm_math.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/O.Oclock_tuanan/app/src/main/res/layout/activity_way_turn_off.xml" value="0.14266304347826086" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/O.Oclock_tuanan/app/src/main/res/layout/activity_way_turn_off.xml" value="0.1038961038961039" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/O.Oclock_tuanan/app/src/main/res/layout/item_alarm.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-xhdpi/radio_selected2.xml" value="0.2375" />
         <entry key="app/src/main/res/drawable/bg_color.xml" value="0.2375" />

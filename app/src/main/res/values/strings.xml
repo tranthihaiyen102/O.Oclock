@@ -80,6 +80,36 @@
     <string name="math_4_exa">39x62=?</string>
     <string name="math_5_txt">Cực kì khó nhằn</string>
     <string name="math_5_exa">23x47x15=?</string>
+    <string name="helpQuestion1">Vì sao báo thức của tôi không kêu?</string>
+    <string name="helpQuestioncontent1">Lý do khiến điện thoại của bạn không kêu dù đã đến giờ báo thức có thể là:</string>
+    <string name="helpReason11">1.\tBạn đã đặt báo thức nhưng lại quên không đặt chuông cho báo thức này. Hoặc bạn vô tình để âm lượng của báo thức ở mức quá nhỏ, nên không nghe được tiếng chuông báo.</string>
+    <string name="helpReason12">2.\tBạn đặt báo thức sai giờ do nhầm lẫn về mặt thời gian. Nếu để đồng hồ hiển thị dưới dạng AM và PM, tình trạng này có khả năng cao xuất hiện.</string>
+    <string name="helpReason13">3.\tPhần mềm điện thoại bị xung đột. Phiên bản phần mềm hiện tại trên máy bị lỗi. Đây cũng là nguyên nhân thường gặp của sự cố điện thoại đặt báo thức không kêu.</string>
+    <string name="helpAnswer1">Các giải pháp để sửa lỗi chuông báo thức của bạn không kêu:</string>
+    <string name="helpAnswerContent11">1.\tTrước khi đi ngủ, bạn cần đảm bảo điện thoại còn nhiều pin, và tắt chế độ tiết kiệm pin</string>
+    <string name="helpAnswerContent12">2.\tKiểm tra cẩn thận báo thức của bạn, đảm bảo bạn đặt đúng giờ mong muốn. Bạn cần chú ý đến khung giờ AM(sáng) và PM(chiều), nếu thời gian trên máy được hiển thị theo định dạng này.</string>
+    <string name="helpAnswerContent13">3.\tKiểm tra lại nhạc chuông lẫn âm lượng của báo thức. Bạn chỉ cần nhấn vào báo thức đã được cài trên điện thoại để kiểm tra. Sau khi chỉnh sửa nhạc chuông và âm lượng như mong muốn. Bạn lưu ý cần bấm Lưu để hoàn tất những chỉnh sửa của mình.</string>
+    <string name="helpAnswerContent14">4. Nếu trên điện thoại có ứng dụng báo thức nào khác không phải O.OClock, để tránh xung đột bạn nên gỡ bỏ ứng dụng đó. Chỉ nên sử dụng O.Oclock hoặc app báo thức mặc định</string>
+    <string name="helpAnswerContent15">5.\tTiến hành cập nhật phiên bản O.Oclock mới nhất cho điện thoại.</string>
+    <string name="helpQuestion2">Tôi có thể chọn file nhạc của mình làm báo thức không?</string>
+    <string name="helpQuestionContent21">Chuông báo thức trên điện thoại đơn điệu và không thể đánh thức bạn dậy? Bạn có thể cài nhạc chuông báo thức cho điện thoại của bạn bằng những bản nhạc có âm lượng lớn hoặc những bài hát yêu thích sẽ giúp bạn dễ dàng thức dậy hơn.</string>
+    <string name="helpQuestionContent22">Các bước cài đặt file nhạc của bạn thành nhạc chuông báo thức:</string>
+    <string name="helpAnswerContent21">\tBước 1: Tiến hành mở ứng dụng O.Oclock trên điện thoại</string>
+    <string name="helpQuestionAnswer22">\tBước 2: Tại O.Oclock, bạn chọn đến thẻ Alarm và chọn vào biểu tượng dấu + để tiến hành tạo một khung thời gian báo thức mới</string>
+    <string name="helpAnswerContent23">\tBước 3: Tìm đến dòng Âm thanh, lựa chọn vào mục Nhạc chuông. Ứng dụng sẽ dẫn bạn đến đường dẫn Âm báo  Chọn từ tệp để thêm nhạc chuông</string>
+    <string name="helpAnswerContent24">\tBước 4: Tiến hành chọn đến thư mục chứa bài hát mà bạn muốn cài làm nhạc chuông cho báo thức của mình, chọn bài hát, sau đó nhấn Áp dụng.</string>
+    <string name="helpAnswerContent25">\tBước 5: Sau khi đã hoàn tất thiết lập, bạn nhấn vào biểu tượng dấu tích V để lưu lại báo thức vừa tạo.</string>
+    <string name="helpQuestion3">Âm lượng báo thức quá nhỏ?</string>
+    <string name="helpQuestionContent31">Bạn có thể tăng hoặc giảm âm lượng của điện thoại. Bạn cũng có thể thay đổi chế độ rung, âm thanh và nhạc chuông.</string>
+    <string name="helpQuestionContent32">Để điều chỉnh âm lượng báo thức, bạn vào Cài đặt, chọn Âm thanh/Âm thanh và rung và kéo thanh trượt để điều chỉnh âm lượng báo thức. Kiểm tra xem tệp tin nhạc chuông có thể phát bình thường không. Nếu không, hãy chuyển sang tệp tin nhạc chuông khác.</string>
+    <string name="ourTeam">Nhóm thực hiện</string>
+    <string name="member1">Trần Thị Hải Yến</string>
+    <string name="member2">Nguyễn Tuấn An</string>
+    <string name="member3">Phạm Thị Huyền Linh</string>
+    <string name="member4">Nguyễn Đình Chi</string>
+    <string name="member5">Phạm Bảo Ngọc</string>
+    <string name="speacialThanks">Xin chân thành cảm ơn</string>
+    <string name="teacher">TS. Phạm Xuân Lâm đã đồng hành, hỗ trợ nhóm trong suốt quá trình thực hiện.</string>
     <string-array name="time_array">
         <item>25 phút</item>
         <item>30 phút</item>
