@@ -27,12 +27,15 @@ public class MenuSettingsHelp extends AppCompatActivity {
             case R.id.question1:
                 Intent intent1 = new Intent(this,HelpQuestion1.class);
                 startActivity(intent1);
+                break;
             case R.id.question2:
                 Intent intent2 = new Intent(this,helpQuestion2.class);
                 startActivity(intent2);
+                break;
             case R.id.question3:
                 Intent intent3 = new Intent(this,HelpQuestion3.class);
                 startActivity(intent3);
+                break;
 
         }
     }
