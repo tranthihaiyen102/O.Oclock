@@ -60,8 +60,8 @@
 
             <RadioButton
                 android:id="@+id/radio_bell"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:background="@drawable/radio_selector_3"
                 android:button="@android:color/transparent"
                 android:onClick="optionCheck"/>
@@ -73,8 +73,8 @@
 
             <RadioButton
                 android:id="@+id/radio_math"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:background="@drawable/radio_selector_4"
                 android:button="@android:color/transparent"
                 android:onClick="optionCheck"/>

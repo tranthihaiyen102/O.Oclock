@@ -33,7 +33,7 @@
         android:layout_width="210dp"
         android:layout_height="210dp"
         android:layout_marginTop="84dp"
-        android:background="@drawable/timing"
+        android:background="@drawable/linhvat_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
