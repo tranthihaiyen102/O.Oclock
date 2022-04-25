@@ -71,7 +71,7 @@ public class AlarmService extends Service {
         Log.d("An_Test","re "+volume);
         mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, volume, 0);
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.alarm);
+        mediaPlayer = MediaPlayer.create(this, R.raw.oo_alarm_soundtrack);
         if (intent.getStringExtra(URI) != null && !intent.getStringExtra(URI).trim().equals("")) {
             Uri alarmUri = Uri.parse(intent.getStringExtra(URI));
             Log.d("An_Test", "re " + alarmUri.toString());

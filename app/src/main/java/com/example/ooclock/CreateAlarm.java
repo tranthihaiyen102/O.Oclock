@@ -8,41 +8,34 @@ import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.URI;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.VIBRATE;
 import static com.example.ooclock.broadcastreceiver.AlarmBroadcastReceiver.VOLUME;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toolbar;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.ooclock.data.AlarmModel;
 import com.example.ooclock.model.Alarm;
 import com.example.ooclock.service.AlarmService;
 import com.example.ooclock.utils.TimePickerUtil;
 
-import java.sql.DatabaseMetaData;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -65,6 +58,7 @@ public class CreateAlarm extends AppCompatActivity {
     @BindView(R.id.sun) CheckBox sun;
     @BindView(R.id.recurring_options)
     LinearLayout recurringOptions;
+    @BindView(R.id.create_text) TextView txt_create;
     String mode;
     Uri uri;
     boolean vibrate;
@@ -87,6 +81,7 @@ public class CreateAlarm extends AppCompatActivity {
         ButterKnife.bind(this);
         createAlarmViewModel = ViewModelProviders.of(this).get(AlarmModel.class);
 
+        txt_create.setText(R.string.lbl_addAlarm);
         int alarmId = getIntent().getIntExtra("alarmId",-1);
         if(alarmId!=-1) alarm = createAlarmViewModel.getAlarmbyId(alarmId);
         mode="0";
@@ -141,6 +136,7 @@ public class CreateAlarm extends AppCompatActivity {
 
         Date currentTime = Calendar.getInstance().getTime();
         if(alarm!=null) {
+            txt_create.setText(R.string.lbl_editAlarm);
             textTimePicker.setText(TimePickerUtil.tof12H(alarm.getHour(), alarm.getMinute()));
             mon.setChecked(alarm.isMonday());
             tue.setChecked(alarm.isTuesday());

@@ -54,6 +54,7 @@
     <string name="t7">T7</string>
     <string name="cn">CN</string>
     <string name="lbl_addAlarm">Thêm báo thức</string>
+    <string name="lbl_editAlarm">Sửa báo thức</string>
     <string name="gioThucDay">Giờ thức dậy</string>
     <string name="txt_GioThucDay">06:00</string>
     <string name="noi_dung">Dậy tập thể dục và ăn sáng</string>
