@@ -48,7 +48,7 @@
         android:fontFamily="@font/montserrat_semibold"
         android:text="Các câu hỏi thường gặp"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_UX" />
 
@@ -63,7 +63,7 @@
         android:onClick="help1"
         android:text="@string/helpQuestion1"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView28" />
@@ -79,7 +79,7 @@
         android:onClick="help1"
         android:text="@string/helpQuestion2"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question1" />
@@ -95,7 +95,7 @@
         android:onClick="help1"
         android:text="@string/helpQuestion3"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question2" />

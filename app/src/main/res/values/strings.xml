@@ -84,15 +84,15 @@
     <string name="helpQuestion1">Vì sao báo thức của tôi không kêu?</string>
 
     <string name="helpQuestioncontent1">Lý do khiến điện thoại của bạn không kêu dù đã đến giờ báo thức có thể là:</string>
-    <string name="helpReason11">1.\tBạn đã đặt báo thức nhưng lại quên không đặt chuông cho báo thức này. Hoặc bạn vô tình để âm lượng của báo thức ở mức quá nhỏ, nên không nghe được tiếng chuông báo.</string>
+    <string name="helpReason11">1.\tBạn quên không đặt chuông cho báo thức. Hoặc bạn vô tình để âm lượng của báo thức ở mức quá nhỏ, nên không nghe được tiếng chuông báo.</string>
     <string name="helpReason12">2.\tBạn đặt báo thức sai giờ do nhầm lẫn về mặt thời gian. Nếu để đồng hồ hiển thị dưới dạng AM và PM, tình trạng này có khả năng cao xuất hiện.</string>
     <string name="helpReason13">3.\tPhần mềm điện thoại bị xung đột. Phiên bản phần mềm hiện tại trên máy bị lỗi. Đây cũng là nguyên nhân thường gặp của sự cố điện thoại đặt báo thức không kêu.</string>
     <string name="helpAnswer1">Các giải pháp để sửa lỗi chuông báo thức của bạn không kêu:</string>
     <string name="helpAnswerContent11">1.\tTrước khi đi ngủ, bạn cần đảm bảo điện thoại còn nhiều pin, và tắt chế độ tiết kiệm pin</string>
-    <string name="helpAnswerContent12">2.\tKiểm tra cẩn thận báo thức của bạn, đảm bảo bạn đặt đúng giờ mong muốn. Bạn cần chú ý đến khung giờ AM(sáng) và PM(chiều), nếu thời gian trên máy được hiển thị theo định dạng này.</string>
+    <string name="helpAnswerContent12">2.\tKiểm tra báo thức, đảm bảo bạn đặt đúng giờ mong muốn. Bạn cần chú ý đến khung giờ AM (sáng) và PM (chiều), nếu thời gian trên máy được hiển thị theo định dạng này.</string>
     <string name="helpAnswerContent13">3.\tKiểm tra lại nhạc chuông lẫn âm lượng của báo thức. Bạn chỉ cần nhấn vào báo thức đã được cài trên điện thoại để kiểm tra. Sau khi chỉnh sửa nhạc chuông và âm lượng như mong muốn. Bạn lưu ý cần bấm Lưu để hoàn tất những chỉnh sửa của mình.</string>
-    <string name="helpAnswerContent14">4. Nếu trên điện thoại có ứng dụng báo thức nào khác không phải O.OClock, để tránh xung đột bạn nên gỡ bỏ ứng dụng đó. Chỉ nên sử dụng O.Oclock hoặc app báo thức mặc định</string>
-    <string name="helpAnswerContent15">5.\tTiến hành cập nhật phiên bản O.Oclock mới nhất cho điện thoại.</string>
+    <string name="helpAnswerContent14">4. Cần gỡ bỏ các ứng dụng báo thức khác để tránh xung đột. Chỉ nên sử dụng O.Oclock hoặc app báo thức mặc định</string>
+    <string name="helpAnswerContent15">5.\tTiến hành cập nhật phiên bản O.Oclock mới nhất.</string>
     <string name="helpQuestion2">Tôi có thể chọn file nhạc của mình làm báo thức không?</string>
     <string name="helpQuestionContent21">Chuông báo thức trên điện thoại đơn điệu và không thể đánh thức bạn dậy? Bạn có thể cài nhạc chuông báo thức cho điện thoại của bạn bằng những bản nhạc có âm lượng lớn hoặc những bài hát yêu thích sẽ giúp bạn dễ dàng thức dậy hơn.</string>
     <string name="helpQuestionContent22">Các bước cài đặt file nhạc của bạn thành nhạc chuông báo thức:</string>
