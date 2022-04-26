@@ -1,8 +1,5 @@
 package com.example.ooclock;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +7,6 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.PersistableBundle;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -19,8 +15,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -93,10 +91,11 @@ public class MenuFocusBreakTime extends AppCompatActivity {
                 btn_break.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        count.cancel();
+                        if(count!=null) count.cancel();
                         Intent intent = new Intent(MenuFocusBreakTime.this,MenuFocus.class);
                         startActivity(intent);
                         finish();
+
                     }
                 });
                 txt_countdown = (TextView) viewFlipper.getCurrentView();
@@ -197,7 +196,8 @@ public class MenuFocusBreakTime extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putLong("millis",millis);
         outState.putBoolean("iscount",iscount);
-        count.cancel();
+        if(count!=null)
+            count.cancel();
     }
 
     @Override
