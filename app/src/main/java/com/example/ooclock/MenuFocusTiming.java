@@ -205,7 +205,7 @@ public class MenuFocusTiming extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putLong("millis",millis);
-        count.cancel();
+        if(count!=null)count.cancel();
     }
 
     @Override
@@ -262,7 +262,7 @@ public class MenuFocusTiming extends AppCompatActivity {
         if(!finish){
             Log.d("An_Test","LEAVE");
             displayNotification();
-            count.cancel();
+            if(count!=null) count.cancel();
             startActivity(new Intent(MenuFocusTiming.this, MenuFocusGiveup.class));
             overridePendingTransition(0,0);
             finish();
