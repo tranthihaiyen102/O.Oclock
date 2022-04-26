@@ -213,41 +213,10 @@ public class MenuFocusTiming extends AppCompatActivity {
     protected void onPause() {
         isruned = true;
         super.onPause();
-        count = new CountDownTimer(millis, 1000) {
-            public void onTick(long millisUntilFinished) {
-                reset_touch++;
-                if (reset_touch % 2 == 1) {
-                    windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
-                    touch = false;
-                }
-                Log.d("An_Test", millis + "");
-                format_time = String.format("%02d:%02d",
-                        TimeUnit.MILLISECONDS.toMinutes(millis) -
-                                TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), // The change is in this line
-                        TimeUnit.MILLISECONDS.toSeconds(millis) -
-                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
-                txt_countdown.setText(format_time);
-                millis -= 1000;
-            }
-
-            public void onFinish() {
-                try {
-                    txt_countdown.setText(R.string.end_countdown);
-                    mediaPlayer = MediaPlayer.create(MenuFocusTiming.this, R.raw.oosoundtrack);
-                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                    mediaPlayer.setLooping(false);
-                    mediaPlayer.start();
-                    vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    long[] pattern = {0, 100, 1000};
-                    vibrator.vibrate(pattern, -1);
-                    finish = true;
-                    Intent intent = new Intent(MenuFocusTiming.this, MenuFocusBreakTime.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception ex) {
-                }
-            }
-        }.start();
+        if(count!=null) count.cancel();
+        startActivity(new Intent(MenuFocusTiming.this, MenuFocusGiveup.class));
+        overridePendingTransition(0,0);
+        finish();
     }
 
     @Override
