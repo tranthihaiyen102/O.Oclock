@@ -91,7 +91,8 @@ public class MenuFocusBreakTime extends AppCompatActivity {
                 btn_break.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(count!=null) count.cancel();
+                        if(count!=null)
+                            count.cancel();
                         Intent intent = new Intent(MenuFocusBreakTime.this,MenuFocus.class);
                         startActivity(intent);
                         finish();
