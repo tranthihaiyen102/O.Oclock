@@ -213,10 +213,12 @@ public class MenuFocusTiming extends AppCompatActivity {
     protected void onPause() {
         isruned = true;
         super.onPause();
-        if(count!=null) count.cancel();
-        startActivity(new Intent(MenuFocusTiming.this, MenuFocusGiveup.class));
-        overridePendingTransition(0,0);
-        finish();
+        if(!finish) {
+            if (count != null) count.cancel();
+            startActivity(new Intent(MenuFocusTiming.this, MenuFocusGiveup.class));
+            overridePendingTransition(0, 0);
+            finish();
+        }
     }
 
     @Override
