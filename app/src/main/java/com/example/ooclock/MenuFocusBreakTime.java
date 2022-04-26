@@ -95,6 +95,7 @@ public class MenuFocusBreakTime extends AppCompatActivity {
                         Intent intent = new Intent(MenuFocusBreakTime.this,MenuFocus.class);
                         startActivity(intent);
                         finish();
+
                     }
                 });
                 txt_countdown = (TextView) viewFlipper.getCurrentView();

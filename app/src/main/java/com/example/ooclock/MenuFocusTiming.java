@@ -205,7 +205,8 @@ public class MenuFocusTiming extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putLong("millis",millis);
-        if(count!=null)count.cancel();
+        if(count!=null)
+            count.cancel();
     }
 
     @Override
