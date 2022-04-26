@@ -37,6 +37,7 @@ public class MenuFocusBreakTime extends AppCompatActivity {
     CountDownTimer count;
     float initialX;
     boolean iscount;
+    boolean finish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +104,7 @@ public class MenuFocusBreakTime extends AppCompatActivity {
                 countdown_time = txt_countdown.getText().toString();
                 time = Integer.parseInt(countdown_time.split(":")[0]);
                 millis= time * 1000;
+                finish=false;
                 if(savedInstanceState!=null){
                     millis=savedInstanceState.getLong("millis",0L);
                     iscount=true;
@@ -120,6 +122,7 @@ public class MenuFocusBreakTime extends AppCompatActivity {
 
                         public void onFinish() {
                             try {
+                                finish=true;
                                 txt_countdown.setText(R.string.end_countdown);
                                 mediaPlayer = MediaPlayer.create(MenuFocusBreakTime.this, R.raw.restart_sound);
                                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -152,6 +155,7 @@ public class MenuFocusBreakTime extends AppCompatActivity {
 
                         public void onFinish() {
                             try {
+                                finish=true;
                                 txt_countdown.setText(R.string.end_countdown);
                                 mediaPlayer = MediaPlayer.create(MenuFocusBreakTime.this, R.raw.restart_sound);
                                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -179,11 +183,13 @@ public class MenuFocusBreakTime extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if(count!=null)
-            count.cancel();
-        Intent intent = new Intent(MenuFocusBreakTime.this,MenuFocus.class);
-        startActivity(intent);
-        finish();
+        if(finish) {
+            if (count != null)
+                count.cancel();
+            Intent intent = new Intent(MenuFocusBreakTime.this, MenuFocus.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void flipper(View view) {
