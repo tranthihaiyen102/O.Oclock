@@ -263,7 +263,8 @@ public class MenuFocusTiming extends AppCompatActivity {
         if(!finish){
             Log.d("An_Test","LEAVE");
             displayNotification();
-            if(count!=null) count.cancel();
+            if(count!=null)
+                count.cancel();
             startActivity(new Intent(MenuFocusTiming.this, MenuFocusGiveup.class));
             overridePendingTransition(0,0);
             finish();
