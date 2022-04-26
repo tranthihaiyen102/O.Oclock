@@ -211,7 +211,6 @@ public class MenuFocusTiming extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        if(count!=null) count.cancel();
         isruned = true;
         super.onPause();
         count = new CountDownTimer(millis, 1000) {

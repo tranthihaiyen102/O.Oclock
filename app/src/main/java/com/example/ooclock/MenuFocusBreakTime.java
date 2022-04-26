@@ -178,7 +178,6 @@ public class MenuFocusBreakTime extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        if(count!=null) count.cancel();
         super.onPause();
         count = new CountDownTimer(millis, 1000) {
             public void onTick(long millisUntilFinished) {
