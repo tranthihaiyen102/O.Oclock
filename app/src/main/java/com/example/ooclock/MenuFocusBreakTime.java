@@ -179,35 +179,11 @@ public class MenuFocusBreakTime extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        count = new CountDownTimer(millis, 1000) {
-            public void onTick(long millisUntilFinished) {
-                Log.d("An_Test", millis + "");
-                format_time = String.format("%02d:%02d",
-                        TimeUnit.MILLISECONDS.toMinutes(millis) -
-                                TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), // The change is in this line
-                        TimeUnit.MILLISECONDS.toSeconds(millis) -
-                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
-                txt_countdown.setText(format_time);
-                millis -= 1000;
-            }
-
-            public void onFinish() {
-                try {
-                    txt_countdown.setText(R.string.end_countdown);
-                    mediaPlayer = MediaPlayer.create(MenuFocusBreakTime.this, R.raw.restart_sound);
-                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                    mediaPlayer.setLooping(false);
-                    mediaPlayer.start();
-                    vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    long[] pattern = {0, 100, 1000};
-                    vibrator.vibrate(pattern, -1);
-                    Intent intent = new Intent(MenuFocusBreakTime.this, MenuFocus.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception ex) {
-                }
-            }
-        }.start();
+        if(count!=null)
+            count.cancel();
+        Intent intent = new Intent(MenuFocusBreakTime.this,MenuFocus.class);
+        startActivity(intent);
+        finish();
     }
 
     public void flipper(View view) {
